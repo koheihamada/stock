@@ -49,6 +49,8 @@
 
 |column|type|options|
 |------|----|-------|
+|stock|integer||
+|retail_price|integer||
 |kind_id|integer||
 |color_id|integer||
 |size_id|integer||
@@ -93,6 +95,8 @@
 
 |column|type|options|
 |------|----|-------|
+|name|string||
+|email|text||
 |address|string||
 |number|integer||
 
