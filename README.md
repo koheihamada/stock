@@ -32,7 +32,7 @@
 |------|----|-------|
 |size|integer||
 
-###Association
+### Association
 
 - belongs_to :colors
 - belongs_to :items
@@ -43,7 +43,7 @@
 |------|----|-------|
 |image|string||
 
-###Assosiation
+### Assosiation
 - belongs_to :colors
 - belongs_to :items
 
@@ -59,7 +59,7 @@
 |size_id|integer||
 |image_id|integer||
 
-###Assoiciation
+### Assoiciation
 
 - has_many :kinds
 - has_many :colors
@@ -75,7 +75,7 @@
 |buy_price|integer||
 |user_id|integer||
 
-###Association
+### Association
 
 - belongs_to :item
 - belongs_to :user
@@ -88,7 +88,7 @@
 |user_id|integer||
 
 
-###Association
+### Association
 
 - belongs_to :item
 - belongs_to :user
