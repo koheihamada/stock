@@ -14,7 +14,7 @@
 - has_many :colors
 - belongs_to :item
 
-##colors テーブル
+## colors テーブル
 
 |column|type|options|
 |------|----|-------|
@@ -26,7 +26,7 @@
 -has_many :images
 - belongs_to :item
 
-##sizes テーブル
+## sizes テーブル
 
 |column|type|options|
 |------|----|-------|
@@ -37,7 +37,7 @@
 - belongs_to :colors
 - belongs_to :items
 
-##imgages テーブル
+## imgages テーブル
 
 |column|type|options|
 |------|----|-------|
@@ -47,7 +47,7 @@
 - belongs_to :colors
 - belongs_to :items
 
-##items テーブル
+## items テーブル
 
 
 |column|type|options|
@@ -68,7 +68,7 @@
 - has_many : buy_price
 - has_many : sell_price
 
-##buy_price テーブル
+## buy_price テーブル
 
 |column|type|options|
 |------|----|-------|
@@ -80,7 +80,7 @@
 - belongs_to :item
 - belongs_to :user
 
-##sell_price テーブル
+## sell_price テーブル
 
 |column|type|options|
 |------|----|-------|
@@ -93,7 +93,7 @@
 - belongs_to :item
 - belongs_to :user
 
-##User テーブル
+## User テーブル
 
 |column|type|options|
 |------|----|-------|
