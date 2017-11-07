@@ -1,3 +1,6 @@
+# Stockss
+
+
 ## kinds テーブル
 
 |column|type|options|
@@ -91,7 +94,6 @@
 - belongs_to :user
 
 ##User テーブル
-##buy_price テーブル
 
 |column|type|options|
 |------|----|-------|
