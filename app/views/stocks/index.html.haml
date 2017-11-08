@@ -1,0 +1,92 @@
+.navbar
+  .navbar__left
+    %img{alt: "顔写真", height: "80", src: "/assets/logo.jpg", width: "100"}
+  .navbar__right
+    %ul
+      =link_to stocks_path do
+        %li
+          Browse
+      =link_to stocks_path do
+        %li
+          Blog
+      =link_to stocks_path do
+        %li
+          App
+      =link_to stocks_path do
+        %li
+          Portfolio
+      =link_to stocks_path do
+        %li
+          About
+      =link_to stocks_path do
+        %li
+          Login/Sign Up
+
+.home
+  %h3
+    THE STOCK MARKET OF THINGS®
+  %h1
+    BUY AND SELL AUTHENTIC STREETWEAR
+  .box
+    .search
+      %p
+        Search for brand
+        %i.fa.fa-search
+    .submit
+      %p
+        Browser All
+  .category
+    .box
+      %ul
+        %li
+          SNEAKER
+        %li
+          STREETWEAR
+        %li
+          WATCHES
+        %li
+          HANDBAG
+
+.image-container
+  .foto-session
+    %img(src="/assets/adpic.jpg")
+
+.container-index
+  .container-index__graph
+    .foto
+      %img(src="/assets/graph.jpg")
+      .fonts
+        %p
+          JORDAN INDEX
+        %h1
+          700000
+        %h2 -$22.52(4.5%)
+    .foto
+      %img(src="/assets/graph.jpg")
+      .fonts
+        %p
+          NIKE INDEX
+        %h1
+          454432
+        %h2 -$22.52(4.5%)
+    .foto
+      %img(src="/assets/graph.jpg")
+      .fonts
+        %p ADIDAS INDEX
+        %h1 224442
+        %h2 -$22.52(4.5%)
+
+  .supply-section
+    %p.popular
+      MOST POPULAR
+    .supply-section__popular
+      - @item.each do |item|
+        .mono
+          %img(src="#{item.color.images[0].image}")
+          .text
+            %p.brand  #{item.kind.brand.brand}
+            %p.kinds #{item.kind.name}
+            %p.ask Lowest Ask
+            %p.price $500
+            %p.sold
+              140 sold

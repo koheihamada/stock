@@ -24,7 +24,7 @@
 |name|string||
 |body|text||
 |category_id|integer||
-|brand|integer||
+|brand_id|integer||
 
 ### Association
 - has_many :colors
@@ -57,7 +57,7 @@
 - belongs_to :color
 - has_many :items
 
-## imgages テーブル
+## images テーブル
 
 |column|type|options|
 |------|----|-------|
