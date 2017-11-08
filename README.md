@@ -4,11 +4,10 @@
 
 |column|type|options|
 |------|----|-------|
-|category|string|null :false|
+|category|string|null: false|
 
 ### Association
-- has_many :items
-- benogs_to :brand
+- has_many :kinds
 
 ## Brands テーブル
 
@@ -16,8 +15,7 @@
 |------|----|-------|
 |brand|string|null :false|
 
-- has_many :items
-- has_many :categories
+- has_many :kinds
 
 ## kinds テーブル
 
@@ -25,10 +23,12 @@
 |------|----|-------|
 |name|string||
 |body|text||
+|category_id|integer||
+|brand|integer||
 
 ### Association
 - has_many :colors
-- belongs_to :item
+- has_many :item
 - belongs_to :category
 - belongs_to :brand
 
@@ -37,33 +37,35 @@
 |column|type|options|
 |------|----|-------|
 |color|string||
+|kind_id|integer||
 
 ### Association
-- belongs_to :kinds
+- belongs_to :kind
 - has_many :sizes
--has_many :images
-- belongs_to :item
+- has_many :images
+- has_many :item
 
 ## sizes テーブル
 
 |column|type|options|
 |------|----|-------|
 |size|integer||
+|color_id :integer||
 
 ### Association
 
-- belongs_to :colors
-- belongs_to :items
+- belongs_to :color
+- has_many :items
 
 ## imgages テーブル
 
 |column|type|options|
 |------|----|-------|
 |image|string||
+|color_id|integer||
 
 ### Assosiation
 - belongs_to :colors
-- belongs_to :items
 
 ## items テーブル
 
@@ -75,20 +77,17 @@
 |kind_id|integer||
 |color_id|integer||
 |size_id|integer||
-|image_id|integer||
-|brand_id|integer||
-|category_id|integer||
+
+
 
 ### Assoiciation
 
-- has_many :kinds
-- has_many :colors
-- has_many :sizes
-- has_many :images
+- belongs_to :kinds
+- belongs_to :colors
+- belongs_to :sizes
 - has_many :buy_price
 - has_many :sell_price
-- belongs_to :category
-- belongs_to :brand
+- has_many :sold_price
 
 ## buy_price テーブル
 
@@ -96,6 +95,7 @@
 |------|----|-------|
 |buy_price|integer||
 |user_id|integer||
+|item_id|integer||
 
 ### Association
 
@@ -108,6 +108,7 @@
 |------|----|-------|
 |sell_price|integer||
 |user_id|integer||
+|item_id|integer||
 
 
 ### Association
@@ -119,9 +120,11 @@
 |column|type|options|
 |------|----|-------|
 |sold_price|integer||
+|item_id|integer||
 
 ### Association
 
+- belongs_to :item
 
 ## User テーブル
 
