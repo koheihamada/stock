@@ -2,7 +2,7 @@
 lock "~> 3.10.0"
 
 set :application, "stock"
-set :repo_url, "git@example.com:koheihamada/stock.git"
+set :repo_url, "git@github.com:koheihamada/stock.git"
 
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
@@ -11,7 +11,7 @@ set :rbenv_type, :user
 set :rbenv_ruby, '2.3.1'
 
 set :ssh_options, auth_methods: ['publickey'],
-                  keys: ['/Users/koheihamada/.ssh/keypair.pem']
+                  keys: ['/Users/hamadakohei/.ssh/keypair.pem']
 
 set :unicorn_pid, -> { "#{shared_path}/tmp/pids/unicorn.pid" }
 set :unicorn_config_path, -> { "#{current_path}/config/unicorn.rb" }
