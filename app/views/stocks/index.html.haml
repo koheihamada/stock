@@ -1,6 +1,6 @@
 .navbar
   .navbar__left
-    %img{alt: "顔写真", height: "80", src: "/assets/logo.jpg", width: "100"}
+    %img{alt: "顔写真", height: "80", src: "#{asset_path "logo.jpg"}", width: "100"}
   .navbar__right
     %ul
       =link_to stocks_path do
@@ -49,12 +49,12 @@
 
 .image-container
   .foto-session
-    %img(src="/assets/adpic.jpg")
+    %img(src= "#{asset_path "adpic.jpg"}")
 
 .container-index
   .container-index__graph
     .foto
-      %img(src="/assets/graph.jpg")
+      %img(src= "#{asset_path "graph.jpg"}")
       .fonts
         %p
           JORDAN INDEX
@@ -62,7 +62,7 @@
           700000
         %h2 -$22.52(4.5%)
     .foto
-      %img(src="/assets/graph.jpg")
+      %img(src= "#{asset_path "graph.jpg"}")
       .fonts
         %p
           NIKE INDEX
@@ -70,7 +70,7 @@
           454432
         %h2 -$22.52(4.5%)
     .foto
-      %img(src="/assets/graph.jpg")
+      %img(src= "#{asset_path "graph.jpg"}")
       .fonts
         %p ADIDAS INDEX
         %h1 224442
