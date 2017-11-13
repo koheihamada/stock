@@ -82,7 +82,7 @@
     .supply-section__popular
       - @item.each do |item|
         .mono
-          %img(src="#{item.images[0].image}")
+          = image_tag item.kind.images[0].image.to_s
           .text
             %p.brand  #{item.kind.brand.brand}
             %p.kinds #{item.kind.name}

@@ -1,4 +1,4 @@
 = form_for @image do |f|
   =f.file_field :image
-  = f.collection_check_boxes(:item_id, Item.all, :id, :stock)
+  = f.collection_check_boxes(:kind_id, Kind.all, :id, :name)
   = f.submit "send"

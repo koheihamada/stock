@@ -5,6 +5,7 @@ class ImagesController < ApplicationController
   end
 
   def create
+    binding.pry
     @image = Image.new(image_params)
     @image.save
       redirect_to :root
@@ -13,8 +14,8 @@ class ImagesController < ApplicationController
 
   private
   def image_params
-    g = params.require(:image).permit(item_id: [])
-    h = g[:item_id].last
-    params.require(:image).permit(:image).merge(item_id: h)
+    g = params.require(:image).permit(kind_id: [])
+    h = g[:kind_id].last
+    params.require(:image).permit(:image).merge(kind_id: h)
   end
 end
