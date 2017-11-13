@@ -59,6 +59,9 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'haml-rails'
 gem 'erb2haml'
+gem 'carrierwave'
+gem 'fog'
+gem 'rmagick'
 group :production do
   gem 'unicorn'
 end

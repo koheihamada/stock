@@ -1,0 +1,7 @@
+= form_for @item do |f|
+  = f.text_field :stock
+  = f.text_field :retail_price
+  = f.collection_check_boxes(:size_id, Size.all, :id, :size)
+  = f.collection_check_boxes(:color_id, Color.all, :id, :color)
+  = f.collection_check_boxes(:kind_id, Kind.all, :id, :name)
+  = f.submit "send"
