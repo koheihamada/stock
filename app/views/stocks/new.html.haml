@@ -1,0 +1,13 @@
+= form_for @stock, url: stocks_path do |f|
+  = f.text_field :name
+  = f.text_field :body
+  = f.collection_check_boxes(:category_id, Category.all, :id, :category)
+  = f.collection_check_boxes(:brand_id, Brand.all, :id, :brand)
+
+  
+  -# = f.fields_for :items do |m|
+  -#   = m.text_field :stock
+  -#   = m.text_field :retail_price
+  -#   = m.collection_check_boxes(:color_id, Color.all, :id, :color)
+  -#   = m.collection_check_boxes(:size_id, Size.all, :id, :size)
+  = f.submit "send"
