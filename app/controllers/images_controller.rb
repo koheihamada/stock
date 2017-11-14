@@ -5,7 +5,6 @@ class ImagesController < ApplicationController
   end
 
   def create
-    binding.pry
     @image = Image.new(image_params)
     @image.save
       redirect_to :root

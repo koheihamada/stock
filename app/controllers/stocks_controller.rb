@@ -12,9 +12,12 @@ class StocksController < ApplicationController
 
   def create
     @stock = Kind.new(kind_params)
-    binding.pry
     @stock.save
       redirect_to :root
+  end
+
+  def show
+    @item = Item.find(params[:id])
   end
 
 

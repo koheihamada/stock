@@ -1,0 +1,34 @@
+.navbar
+  .navbar__left
+    %img{alt: "顔写真", height: "80", src: "#{asset_path "logo.jpg"}", width: "100"}
+  .navbar__right
+    %ul
+      =link_to new_item_path do
+        %li
+          Browse
+      =link_to stocks_path do
+        %li
+          Blog
+      =link_to stocks_path do
+        %li
+          App
+      =link_to stocks_path do
+        %li
+          Portfolio
+      =link_to stocks_path do
+        %li
+          About
+      =link_to stocks_path do
+        %li
+          Login/Sign Up
+
+.content
+  .content-top
+    %h1 #{@item.kind.brand.brand} 　#{@item.kind.name}
+    %p #{@item.kind.body}
+
+    %img 
+      - if @item.kind.images[0].present?
+        = image_tag "#{@item.kind.images[0].image.to_s}",size:"600*400"
+      - else
+        %img(src= "#{asset_path "default.jpg"}")
