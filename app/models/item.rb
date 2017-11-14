@@ -5,4 +5,5 @@ class Item < ApplicationRecord
   has_many :buy_prices
   has_many :sell_prices
   has_many :sold_prices
+  has_many :payments
 end

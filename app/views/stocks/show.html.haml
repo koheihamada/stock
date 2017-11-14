@@ -1,6 +1,6 @@
 .navbar
   .navbar__left
-    %img{alt: "顔写真", height: "80", src: "#{asset_path "logo.jpg"}", width: "100"}
+    = link_to image_tag("#{asset_path "logo.jpg"}", alt: "logo", height: "80", width: "100"), root_path
   .navbar__right
     %ul
       =link_to new_item_path do
@@ -26,9 +26,54 @@
   .content-top
     %h1 #{@item.kind.brand.brand} 　#{@item.kind.name}
     %p #{@item.kind.body}
+    %p Size #{@item.size.size}
+    %p Last Price
+
+    %p
+      sell price(売りたい値段)
+    = form_for @sell_price, url: sell_path(@item.id) do |s|
+      =s.hidden_field :user_id, value: current_user.id
+      =s.hidden_field :item_id, value: @item.id
+      =s.text_field :sell_price
+      =s.submit "send"
+
+    - if @sell.sell_price.present?
+      %p
+        最安値（売り=買える）Lowest Bid #{@sell.sell_price}
+    - else
+      %p
+        最安値（売り=買える）Lowest Bid -
+
+    = form_for @payment, url: payment_path(@item.id) do |pay|
+      =pay.hidden_field :user_id, value: current_user.id
+      =pay.hidden_field :item_id, value: @item.id
+      =pay.hidden_field :sell_price_id, value: @sell.id
+      =pay.submit "buy"
+
+
+    %p
+      buy price（買いたい値段）
+    = form_for @buy_price, url: buy_path(@item.id) do |b|
+      =b.hidden_field :user_id, value: current_user.id
+      =b.hidden_field :item_id, value: @item.id
+      =b.text_field :buy_price
+      =b.submit "send"
+
+    - if @buy.buy_price.present?
+      %p
+        最高値（買い=売れる）Highest Ask #{@buy.buy_price}
+    - else
+      %p
+        最高値（買い=売れる）Highest Ask -
+
+
+
+
 
     %img 
       - if @item.kind.images[0].present?
         = image_tag "#{@item.kind.images[0].image.to_s}",size:"600*400"
       - else
         %img(src= "#{asset_path "default.jpg"}")
+
+    
