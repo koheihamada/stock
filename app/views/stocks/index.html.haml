@@ -1,6 +1,6 @@
 .navbar
   .navbar__left
-    %img{alt: "顔写真", height: "80", src: "#{asset_path "logo.jpg"}", width: "100"}
+    = link_to image_tag("#{asset_path "logo.jpg"}", alt: "logo", height: "80", width: "100"), root_path
   .navbar__right
     %ul
       =link_to new_item_path do
@@ -18,9 +18,17 @@
       =link_to stocks_path do
         %li
           About
-      =link_to stocks_path do
-        %li
-          Login/Sign Up
+      - if user_signed_in?
+        =link_to destroy_user_session_path, method: :delete do
+          %li
+            Log Out
+      - else
+        = link_to new_user_registration_path do
+          %li
+            Sign Up
+        = link_to new_user_session_path do
+          %li
+            Login
 
 .home{ style: "background-image: url(#{asset_path "louisvuitton.jpg"})"}
   %h3

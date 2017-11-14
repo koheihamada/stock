@@ -162,14 +162,16 @@
     width: 100%;
     padding-top: 20px;
     .hako1 {
+      padding-top: 50px;
       p.popular{
         font-size: 20px;
         border-bottom: solid gray 1px;
+        padding-left: 80px;
       }
       .supply-section__popular{
-        width: 100%;
+        width: 90%;
         text-align: center;
-        padding-left: 150px;
+        margin: 0 auto;
         .mono{
           text-align: center;
           float:left;
@@ -203,14 +205,15 @@
       }
     }
     .hako2{
+      padding-top: 100px;
       p.lowest{
         font-size: 20px;
         border-bottom: solid gray 1px;
+        padding-left: 80px;
       }
       .supply-section__lowest{
-        width: 100%;
-        text-align: center;
-        padding-left: 150px;
+        width: 90%;
+        margin: 0 auto;
         .mono{
           text-align: center;
           float:left;
@@ -244,14 +247,15 @@
       }
     }
     .hako3{
+      padding-top: 50px;
       p.highest{
         font-size: 20px;
         border-bottom: solid gray 1px;
+        padding-left: 80px;
       }
       .supply-section__highest{
-        width: 100%;
-        text-align: center;
-        padding-left: 150px;
+        width: 90%;
+        margin: 0 auto;
         .mono{
           text-align: center;
           float:left;

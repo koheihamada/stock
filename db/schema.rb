@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171114024315) do
+ActiveRecord::Schema.define(version: 20171114105813) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "brand",      null: false
@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(version: 20171114024315) do
   end
 
   create_table "buy_prices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "buy_price"
+    t.integer  "user_id"
+    t.integer  "item_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -61,12 +64,21 @@ ActiveRecord::Schema.define(version: 20171114024315) do
     t.datetime "updated_at",                null: false
   end
 
+  create_table "payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "user_id"
+    t.integer  "item_id"
+    t.integer  "my_user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.integer  "sell_price_id"
+  end
+
   create_table "sell_prices", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "sell_price"
     t.integer  "user_id"
-    t.integer  "itme_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "item_id"
   end
 
   create_table "sizes", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -86,8 +98,20 @@ ActiveRecord::Schema.define(version: 20171114024315) do
     t.string   "name"
     t.string   "address"
     t.string   "number"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          default: 0,  null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
 end
