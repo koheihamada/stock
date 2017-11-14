@@ -82,7 +82,26 @@
     .supply-section__popular
       - @item.each do |item|
         .mono
-          = image_tag item.kind.images[0].image.to_s
+          - if item.kind.images[0].present?
+            = image_tag item.kind.images[0].image.to_s
+          - else
+            %img(src= "#{asset_path "default.jpg"}")
+          .text
+            %p.brand  #{item.kind.brand.brand}
+            %p.kinds #{item.kind.name}
+            %p.ask Lowest Ask
+            %p.price $500
+            %p.sold #{item.stock} left
+            %p.stock #{item.color.color }
+    %p.popular
+      NEW LOWESR ASKS
+    .supply-section__popular
+      - @item.each do |item|
+        .mono
+          - if item.kind.images[0].present?
+            = image_tag item.kind.images[0].image.to_s
+          - else
+            %img(src= "#{asset_path "default.jpg"}")
           .text
             %p.brand  #{item.kind.brand.brand}
             %p.kinds #{item.kind.name}
