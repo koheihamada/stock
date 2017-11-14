@@ -76,16 +76,17 @@
         %h1 224442
         %h2 -$22.52(4.5%)
 
-  .supply-section
+.supply-section
+  .hako1
     %p.popular
       MOST POPULAR
-    .supply-section__popular
+    .supply-section__popular.clearfix
       - @item.each do |item|
         .mono
           - if item.kind.images[0].present?
             = link_to image_tag(item.kind.images[0].image.to_s), stock_path(item.id)
           - else
-            %img(src= "#{asset_path "default.jpg"}")
+            = link_to image_tag("#{asset_path "default.jpg"}"), stock_path(item.id)
           .text
             %p.brand  #{item.kind.brand.brand}
             %p.kinds #{item.kind.name}
@@ -93,15 +94,16 @@
             %p.price $500
             %p.sold #{item.stock} left
             %p.stock #{item.color.color }
-    %p.popular
-      NEW LOWESR ASKS
-    .supply-section__popular
+  .hako2
+    %p.lowest
+      NEW LOWEST ASKS
+    .supply-section__lowest.clearfix
       - @item.each do |item|
         .mono
           - if item.kind.images[0].present?
-            = image_tag item.kind.images[0].image.to_s
+            = link_to image_tag(item.kind.images[0].image.to_s), stock_path(item.id)
           - else
-            %img(src= "#{asset_path "default.jpg"}")
+            = link_to image_tag("#{asset_path "default.jpg"}"), stock_path(item.id)
           .text
             %p.brand  #{item.kind.brand.brand}
             %p.kinds #{item.kind.name}
@@ -109,16 +111,16 @@
             %p.price $500
             %p.sold #{item.stock} left
             %p.stock #{item.color.color }
-
-    %p.popular
+  .hako3
+    %p.highest
       NEW HIGHEST BIDS
-    .supply-section__popular
+    .supply-section__highest.clearfix
       - @item.each do |item|
         .mono
           - if item.kind.images[0].present?
-            = image_tag item.kind.images[0].image.to_s
+            = link_to image_tag(item.kind.images[0].image.to_s), stock_path(item.id)
           - else
-            %img(src= "#{asset_path "default.jpg"}")
+            = link_to image_tag("#{asset_path "default.jpg"}"), stock_path(item.id)
           .text
             %p.brand  #{item.kind.brand.brand}
             %p.kinds #{item.kind.name}
