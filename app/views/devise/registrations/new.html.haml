@@ -5,6 +5,22 @@
     = f.label :email
     %br/
     = f.email_field :email, autofocus: true
+
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name
+
+  .field
+    =f.label :address
+    %br/
+    = f.text_field :address
+
+  .field
+    = f.label :number
+    %br/
+    = f.text_field :number
+
   .field
     = f.label :password
     - if @minimum_password_length
