@@ -1,3 +1,3 @@
-wclass Category < ApplicationRecord
+class Category < ApplicationRecord
   has_many :kinds
 end
