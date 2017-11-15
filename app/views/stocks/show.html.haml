@@ -21,63 +21,90 @@
       =link_to stocks_path do
         %li
           Login/Sign Up
+-if user_signed_in?
+  .content
+    .content-top
+      %h1 #{@item.kind.brand.brand} 　#{@item.kind.name}
+      %p #{@item.kind.body}
+      %p Size #{@item.size.size}
+      %p Last Price
 
-.content
-  .content-top
-    %h1 #{@item.kind.brand.brand} 　#{@item.kind.name}
-    %p #{@item.kind.body}
-    %p Size #{@item.size.size}
-    %p Last Price
-
-    %p
-      sell price(売りたい値段)
-    = form_for @sell_price, url: sell_path(@item.id) do |s|
-      =s.hidden_field :user_id, value: current_user.id
-      =s.hidden_field :item_id, value: @item.id
-      =s.text_field :sell_price
-      =s.submit "send"
-
-    - if @sell.present?
       %p
-        最安値（売り=買える）Lowest Bid #{@sell.sell_price}
-    - else
-      %p
-        最安値（売り=買える）Lowest Bid -
+        sell price(売りたい値段)
+      = form_for @sell_price, url: sell_path(@item.id) do |s|
+        =s.hidden_field :user_id, value: current_user.id
+        =s.hidden_field :item_id, value: @item.id
+        =s.text_field :sell_price
+        =s.submit "send"
 
-
-    - if @sell.present?
-      = form_tag payment_path(@item.id), method: :get do
-        =hidden_field_tag :user_id, current_user.id
-        =hidden_field_tag :item_id, @item.id
-        =hidden_field_tag :sell_price_id, @sell.id
-        =submit_tag "buy at #{@sell.sell_price}（即買い）"
-    - else
-      %p not available
-
-
-    %p
-      buy price（買いたい値段）
-    = form_for @buy_price, url: buy_path(@item.id) do |b|
-      =b.hidden_field :user_id, value: current_user.id
-      =b.hidden_field :item_id, value: @item.id
-      =b.text_field :buy_price
-      =b.submit "send"
-
-    - if @buy.present?
-      %p
-        最高値（買い=売れる）Highest Ask #{@buy.buy_price}
-    - else
-      %p
-        最高値（買い=売れる）Highest Ask -
-
-
-
-
-
-    %img 
-      - if @item.kind.images[0].present?
-        = image_tag "#{@item.kind.images[0].image.to_s}",size:"600*400"
+      - if @sell.present?
+        %p
+          最安値（売り=買える）Lowest Bid #{@sell.sell_price}
       - else
-        %img(src= "#{asset_path "default.jpg"}")
+        %p
+          最安値（売り=買える）Lowest Bid -
 
-    
+
+      - if @sell.present?
+        = form_tag payment_path(@item.id), method: :get do
+          =hidden_field_tag :user_id, current_user.id
+          =hidden_field_tag :item_id, @item.id
+          =hidden_field_tag :sell_price_id, @sell.id
+          =submit_tag "buy at #{@sell.sell_price}（即買い）"
+      - else
+        %p not available
+
+
+      %p
+        buy price（買いたい値段）
+      = form_for @buy_price, url: buy_path(@item.id) do |b|
+        =b.hidden_field :user_id, value: current_user.id
+        =b.hidden_field :item_id, value: @item.id
+        =b.text_field :buy_price
+        =b.submit "send"
+
+      - if @buy.present?
+        %p
+          最高値（買い=売れる）Highest Ask #{@buy.buy_price}
+      - else
+        %p
+          最高値（買い=売れる）Highest Ask -
+
+
+
+
+
+      %img
+        - if @item.kind.images[0].present?
+          = image_tag "#{@item.kind.images[0].image.to_s}",size:"600*400"
+        - else
+          %img(src= "#{asset_path "default.jpg"}")
+
+-else
+  .content
+    .content-top
+      %h1 #{@item.kind.brand.brand} 　#{@item.kind.name}
+      %p #{@item.kind.body}
+      %p Size #{@item.size.size}
+      %p Last Price
+
+      - if @sell.present?
+        %p
+          最安値（売り=買える）Lowest Bid #{@sell.sell_price}
+      - else
+        %p
+          最安値（売り=買える）Lowest Bid -
+
+      - if @buy.present?
+        %p
+          最高値（買い=売れる）Highest Ask #{@buy.buy_price}
+      - else
+        %p
+          最高値（買い=売れる）Highest Ask -
+
+      %img
+        - if @item.kind.images[0].present?
+          = image_tag "#{@item.kind.images[0].image.to_s}",size:"600*400"
+        - else
+          %img(src= "#{asset_path "default.jpg"}")
+
