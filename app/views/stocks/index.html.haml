@@ -22,6 +22,9 @@
         =link_to destroy_user_session_path, method: :delete do
           %li
             Log Out
+        = link_to user_path(current_user.id) do
+          %li
+            My Account
       - else
         = link_to new_user_registration_path do
           %li
