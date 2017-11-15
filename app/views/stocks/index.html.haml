@@ -100,7 +100,7 @@
             %p.kinds #{item.kind.name}
             %p.ask Lowest Ask
             - if  item.sell_prices[0].present?
-              %p.price #{item.sell_prices[0].sell_price}
+              %p.price $ #{item.sell_prices[0].sell_price}
             -else
               %p.price $---
             %p.sold #{item.stock} left
@@ -120,7 +120,7 @@
             %p.kinds #{item.kind.name}
             %p.ask Lowest Ask
             - if  item.sell_prices[0].present?
-              %p.price #{item.sell_prices[0].sell_price}
+              %p.price $ #{item.sell_prices[0].sell_price}
             -else
               %p.price $---
             %p.sold #{item.stock} left
@@ -140,7 +140,7 @@
             %p.kinds #{item.kind.name}
             %p.ask Lowest Ask
             - if  item.sell_prices[0].present?
-              %p.price #{item.sell_prices[0].sell_price}
+              %p.price $ #{item.sell_prices[0].sell_price}
             -else
               %p.price $---
             %p.sold #{item.stock} left
