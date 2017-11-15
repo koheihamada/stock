@@ -22,13 +22,19 @@ class StocksController < ApplicationController
     @sell = SellPrice.where(item_id: params[:id]).order("sell_price DESC").last
     @buy_price = BuyPrice.new
     @buy = BuyPrice.where(item_id: params[:id]).order("buy_price DESC").last
-
     @payment = Payment.new
   end
 
   def payment
     @payment = Payment.new(payment_params)
+    @item = Item.find(params[:item_id])
+    @sell = SellPrice.find(params[:sell_price_id])
+  end
+
+  def payment_confirm
+    @payment = Payment.new(confirm_params)
     @payment.save
+    @sold_price = SoldPrice.create(sold_price_params)
     sell = SellPrice.all.order("sell_price DESC").last
     sell.destroy
     redirect_to stock_path(params[:item_id])
@@ -43,6 +49,7 @@ class StocksController < ApplicationController
   def sell
     @sell_price = SellPrice.new(sell_params)
     @sell_price.save
+    @sold_price = SoldPrice.new
     redirect_to stock_path(params[:item_id])
   end
 
@@ -52,10 +59,6 @@ class StocksController < ApplicationController
     b = a[:category_id].last
     c = params.require(:kind).permit(brand_id: [])
     d = c[:brand_id].last
-    # e = params.require(:items).permit(size_ids: [])
-    # f = e[:size_ids].last
-    # g = params.require(:items).permit(color_ids: [])
-    # h = g[:color_ids].last
     params.require(:kind).permit(:name,:body,).merge(category_id: b, brand_id: d)
   end
 
@@ -68,6 +71,14 @@ class StocksController < ApplicationController
   end
 
   def payment_params
-    params.require(:payment).permit(:user_id, :item_id, :sell_price_id)
+    params.permit(:user_id, :item_id, :sell_price_id)
+  end
+
+  def confirm_params
+    params.require(:payment).permit(:user_id, :item_id, :sell_price_id, :sold_price)
+  end
+
+  def sold_price_params
+    params.require(:payment).permit(:item_id).merge(sold_price: @payment.sell_price.sell_price, payment_id: @payment.id )
   end
 end
