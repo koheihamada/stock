@@ -13,6 +13,7 @@
 !/log/.keep
 !/tmp/.keep
 config/secrets.yml
+config/initializers/setting.rb
 
 # Ignore Byebug command history file.
 .byebug_history
