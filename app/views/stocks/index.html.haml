@@ -99,7 +99,10 @@
             %p.brand  #{item.kind.brand.brand}
             %p.kinds #{item.kind.name}
             %p.ask Lowest Ask
-            %p.price $500
+            - if  item.sell_prices[0].present?
+              %p.price #{item.sell_prices[0].sell_price}
+            -else
+              %p.price $---
             %p.sold #{item.stock} left
             %p.stock #{item.color.color }
   .hako2
@@ -116,7 +119,10 @@
             %p.brand  #{item.kind.brand.brand}
             %p.kinds #{item.kind.name}
             %p.ask Lowest Ask
-            %p.price $500
+            - if  item.sell_prices[0].present?
+              %p.price #{item.sell_prices[0].sell_price}
+            -else
+              %p.price $---
             %p.sold #{item.stock} left
             %p.stock #{item.color.color }
   .hako3
@@ -133,6 +139,9 @@
             %p.brand  #{item.kind.brand.brand}
             %p.kinds #{item.kind.name}
             %p.ask Lowest Ask
-            %p.price $500
+            - if  item.sell_prices[0].present?
+              %p.price #{item.sell_prices[0].sell_price}
+            -else
+              %p.price $---
             %p.sold #{item.stock} left
             %p.stock #{item.color.color }
