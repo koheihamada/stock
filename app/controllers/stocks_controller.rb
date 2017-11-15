@@ -19,9 +19,9 @@ class StocksController < ApplicationController
   def show
     @item = Item.find(params[:id])
     @sell_price = SellPrice.new
-    @sell = SellPrice.all.order("sell_price DESC").last
+    @sell = SellPrice.where(item_id: params[:id]).order("sell_price DESC").last
     @buy_price = BuyPrice.new
-    @buy = BuyPrice.all.order("buy_price DESC").last
+    @buy = BuyPrice.where(item_id: params[:id]).order("buy_price DESC").last
 
     @payment = Payment.new
   end
