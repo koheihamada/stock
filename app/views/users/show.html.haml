@@ -1,0 +1,22 @@
+
+%p
+  アカウント名#{@user.name}
+%p
+  住所#{@user.address}
+%p
+  電話番号#{@user.number}
+%p
+  Email #{@user.email}
+
+
+%p
+  入札履歴
+- @user.sell_prices.each do |mono|
+  $ #{mono.sell_price} で
+  #{mono.item.kind.name} を入札中
+
+%p
+  購入履歴
+- @user.payments.each do |good|
+  $ #{good.sold_price} で
+  #{good.item.kind.name} を購入済み

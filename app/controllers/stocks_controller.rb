@@ -28,9 +28,11 @@ class StocksController < ApplicationController
     @payment = Payment.new(payment_params)
     @item = Item.find(params[:item_id])
     @sell = SellPrice.find(params[:sell_price_id])
+    @user = current_user
   end
 
   def payment_confirm
+    @user = current_user
     @payment = Payment.new(confirm_params)
     @payment.save
     @sold_price = SoldPrice.create(sold_price_params)
