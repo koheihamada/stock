@@ -1,0 +1,21 @@
+.content
+  .content-top
+    %h1 #{@payment.item.kind.brand.brand} &nbsp; &nbsp; #{@payment.item.kind.name}
+    %p #{@payment.item.kind.body}
+    %p Size #{@payment.item.size.size}
+    %p price #{@payment.sell_price.sell_price}
+
+    %img
+      - if @payment.item.kind.images[0].present?
+        = image_tag "#{@payment.item.kind.images[0].image.to_s}",width: "50%", height: "50%"
+      - else
+        %img(src= "#{asset_path "default.jpg"}")
+
+    %p Buy Right NOW
+
+    = form_for @payment, url: payment_path(@item.id) do |pay|
+      =pay.hidden_field :user_id, value: current_user.id
+      =pay.hidden_field :item_id, value: @item.id
+      =pay.hidden_field :sell_price_id, value: @sell.id
+      =pay.hidden_field :sold_price, value: @sell.sell_price
+      =pay.submit "buy at #{@sell.sell_price}"

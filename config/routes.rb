@@ -9,5 +9,6 @@ Rails.application.routes.draw do
 
   post   '/stocks/:item_id/sell' => 'stocks#sell',   as: 'sell'
   post   '/stocks/:item_id/buy' => 'stocks#buy',     as: 'buy'
-  post   '/stocks/:item_id/payment' => 'stocks#payment',     as: 'payment'
+  get   '/stocks/:item_id/payment' => 'stocks#payment',     as: 'payment'
+  post   '/stocks/:item_id/payment' => 'stocks#payment_confirm',     as: 'payment_confirm'
 end
