@@ -17,9 +17,12 @@
       %p #{@user.address}
       %p #{@user.number}
       %p クレジット情報
-      %p そんなのねえ！！！！
 
-    %p Buy Right NOW
+      = form_tag(action: :payment_confirm, method: :post) do
+        %script.payjp-button{data: { key: "#{PAYJP_PUBLIC_KEY}"}, src: "https://checkout.pay.jp", type: "text/javascript"}
+
+
+    %p Buy It Right NOW
 
     = form_for @payment, url: payment_path(@item.id) do |pay|
       =pay.hidden_field :user_id, value: current_user.id

@@ -70,6 +70,14 @@
         %p
           最高値（買い=売れる）Highest Ask -
 
+      - if @buy.present?
+        = form_tag selling_path(@item.id), method: :get do
+          =hidden_field_tag :user_id, current_user.id
+          =hidden_field_tag :item_id, @item.id
+          =hidden_field_tag :buy_price_id, @buy.id
+          =submit_tag "sell at #{@buy.buy_price}（即売り）"
+      - else
+        %p not available
 
 
 
@@ -107,4 +115,3 @@
           = image_tag "#{@item.kind.images[0].image.to_s}",size:"600*400"
         - else
           %img(src= "#{asset_path "default.jpg"}")
-

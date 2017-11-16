@@ -12,4 +12,5 @@ Rails.application.routes.draw do
   post   '/stocks/:item_id/buy' => 'stocks#buy',     as: 'buy'
   get   '/stocks/:item_id/payment' => 'stocks#payment',     as: 'payment'
   post   '/stocks/:item_id/payment' => 'stocks#payment_confirm',     as: 'payment_confirm'
+  get   '/stocks/:item_id/selling' => 'stocks#selling',     as: 'selling'
 end

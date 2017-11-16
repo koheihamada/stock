@@ -83,6 +83,7 @@
         %p ADIDAS INDEX
         %h1 224442
         %h2 -$22.52(4.5%)
+        #{@item.count}
 
 .supply-section
   .hako1
@@ -98,10 +99,11 @@
           .text
             %p.brand  #{item.kind.brand.brand}
             %p.kinds #{item.kind.name}
-            %p.ask Lowest Ask
-            - if  item.sell_prices[0].present?
-              %p.price $ #{item.sell_prices[0].sell_price}
-            -else
+            %p.ask Last Deal
+            - if item.sold_prices[0].present?
+              - @sold = item.sold_prices.sort.last
+              %p.price $ #{@sold.sold_price}
+            - else
               %p.price $---
             %p.sold #{item.stock} left
             %p.stock #{item.color.color }
@@ -118,10 +120,11 @@
           .text
             %p.brand  #{item.kind.brand.brand}
             %p.kinds #{item.kind.name}
-            %p.ask Lowest Ask
-            - if  item.sell_prices[0].present?
-              %p.price $ #{item.sell_prices[0].sell_price}
-            -else
+            %p.ask Last Deal
+            - if item.sold_prices[0].present?
+              - @sold = item.sold_prices.sort.last
+              %p.price $ #{@sold.sold_price}
+            - else
               %p.price $---
             %p.sold #{item.stock} left
             %p.stock #{item.color.color }
@@ -138,10 +141,11 @@
           .text
             %p.brand  #{item.kind.brand.brand}
             %p.kinds #{item.kind.name}
-            %p.ask Lowest Ask
-            - if  item.sell_prices[0].present?
-              %p.price $ #{item.sell_prices[0].sell_price}
-            -else
+            %p.ask Last Deal
+            - if item.sold_prices[0].present?
+              - @sold = item.sold_prices.sort.last
+              %p.price $ #{@sold.sold_price}
+            - else
               %p.price $---
             %p.sold #{item.stock} left
             %p.stock #{item.color.color }

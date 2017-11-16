@@ -2,6 +2,7 @@ class StocksController < ApplicationController
 
   def index
     @item = Item.all
+    # @sold =SoldPrice.order("sold_price DESC").last
   end
 
   def new
@@ -26,6 +27,7 @@ class StocksController < ApplicationController
 
   def payment
     @payment = Payment.new(payment_params)
+
     @item = Item.find(params[:item_id])
     @sell = SellPrice.find(params[:sell_price_id])
     @user = current_user
@@ -33,12 +35,19 @@ class StocksController < ApplicationController
 
   def payment_confirm
     @user = current_user
+    @item = Item.find(params[:item_id])
+    @sell = SellPrice.where(item_id: params[:item_id]).order("sell_price DESC").last
     @payment = Payment.new(confirm_params)
-    @payment.save
-    @sold_price = SoldPrice.create(sold_price_params)
-    sell = SellPrice.all.order("sell_price DESC").last
-    sell.destroy
-    redirect_to stock_path(params[:item_id])
+    if @payment.save
+      Payjp.api_key = PAYJP_SECRET_KEY
+      Payjp::Charge.create(currency: 'jpy', amount: @payment.sell_price.sell_price, card: params['payjp-token'])
+      @sold_price = SoldPrice.create(sold_price_params)
+      sell = SellPrice.where(item_id: params[:item_id]).order("sell_price DESC").last
+      sell.destroy
+      redirect_to root_path, notice: "支払いが完了しました"
+    else
+      redirect_to root_path, notice: "matigae"
+    end
   end
 
   def buy
@@ -47,12 +56,17 @@ class StocksController < ApplicationController
     redirect_to stock_path(params[:item_id])
   end
 
+  def selling
+  end
+
   def sell
     @sell_price = SellPrice.new(sell_params)
     @sell_price.save
     @sold_price = SoldPrice.new
     redirect_to stock_path(params[:item_id])
   end
+
+
 
   private
   def kind_params
@@ -76,10 +90,10 @@ class StocksController < ApplicationController
   end
 
   def confirm_params
-    params.require(:payment).permit(:user_id, :item_id, :sell_price_id, :sold_price)
+    params.permit(:item_id, :sold_price).merge(sell_price_id: @sell.id, user_id: current_user.id)
   end
 
   def sold_price_params
-    params.require(:payment).permit(:item_id).merge(sold_price: @payment.sell_price.sell_price, payment_id: @payment.id )
+    params.permit(:item_id).merge(sold_price: @payment.sell_price.sell_price, payment_id: @payment.id )
   end
 end
