@@ -27,7 +27,6 @@ class StocksController < ApplicationController
 
   def payment
     @payment = Payment.new(payment_params)
-
     @item = Item.find(params[:item_id])
     @sell = SellPrice.find(params[:sell_price_id])
     @user = current_user
