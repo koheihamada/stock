@@ -17,9 +17,9 @@
       %p #{@user.address}
       %p #{@user.number}
       %p クレジット情報
-      -#
-      -# = form_tag(action: :payment_confirm, method: :post) do
-      -#   %script.payjp-button{data: { key: "#{PAYJP_PUBLIC_KEY}"}, src: "https://checkout.pay.jp", type: "text/javascript"}
+
+      = form_tag(action: :payment_confirm, method: :post) do
+        %script.payjp-button{data: { key: "#{Rails.application.secrets.PAYJP_PUBLIC_KEY}"}, src: "https://checkout.pay.jp", type: "text/javascript"}
 
 
     %p Buy It Right NOW
