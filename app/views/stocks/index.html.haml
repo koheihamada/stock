@@ -1,48 +1,55 @@
 .navbar
   .navbar__left
-    = link_to image_tag("#{asset_path "logo.jpg"}", alt: "logo", height: "80", width: "100"), root_path
+    = link_to image_tag("#{asset_path "monokabu.png"}", alt: "logo", height: "80", width: "100"), root_path
   .navbar__right
     %ul
       =link_to new_item_path do
         %li
-          Browse
+          テスト
       =link_to stocks_path do
         %li
-          Blog
+          ホーム
       =link_to stocks_path do
         %li
-          App
+          準備中
       =link_to stocks_path do
         %li
-          Portfolio
+          準備中
       =link_to stocks_path do
         %li
-          About
+          準備中
       - if user_signed_in?
         =link_to destroy_user_session_path, method: :delete do
           %li
-            Log Out
+            サインアウト
       - else
         = link_to new_user_registration_path do
           %li
-            Sign Up
+            サインアップ
         = link_to new_user_session_path do
           %li
-            Login
+            ログイン
 
 .home{ style: "background-image: url(#{asset_path "louisvuitton.jpg"})"}
   %h3
-    THE STOCK MARKET OF THINGS®
+    買いたい値段でモノを買う時代
   %h1
-    BUY AND SELL AUTHENTIC STREETWEAR
+    モノカブなら自分の欲しい値段で購入できる！
+  -if user_signed_in?
+  -else
+    %h4
+      ＊プロトタイプです。まずは　
+      = link_to new_user_registration_path do
+        サインアップ
+      して触ってみてね
   .box
     .search
       %p
-        Search for brand
+        欲しいものを検索してみよう（準備中）
         %i.fa.fa-search
     .submit
       %p
-        Browser All
+        サーチ
   .category
     .box
       %ul
@@ -57,7 +64,7 @@
 
 .image-container
   .foto-session
-    %img(src= "#{asset_path "adpic.jpg"}")
+    %img(src= "#{asset_path "supreme.png"}")
 
 .container-index
   .container-index__graph
@@ -65,25 +72,24 @@
       %img(src= "#{asset_path "grapgh-image.png"}")
       .fonts
         %p
-          JORDAN INDEX
+          ブランド別 INDEX
         %h1
           700000
-        %h2 -$22.52(4.5%)
+        %h2 -¥22.52(4.5%)
     .foto
       %img(src= "#{asset_path "grapgh-image.png"}")
       .fonts
         %p
-          NIKE INDEX
+          ブランド別 INDEX
         %h1
           454432
-        %h2 -$22.52(4.5%)
+        %h2 -¥303.3(4.5%)
     .foto
       %img(src= "#{asset_path "grapgh-image.png"}")
       .fonts
-        %p ADIDAS INDEX
+        %p ブランド別 INDEX
         %h1 224442
-        %h2 -$22.52(4.5%)
-        #{@item.count}
+        %h2 -¥5,320.83(4.5%)
 
 .supply-section
   .hako1
@@ -99,13 +105,13 @@
           .text
             %p.brand  #{item.kind.brand.brand}
             %p.kinds #{item.kind.name}
-            %p.ask Last Deal
+            %p.ask 最終取引
             - if item.sold_prices[0].present?
               - @sold = item.sold_prices.sort.last
-              %p.price $ #{@sold.sold_price}
+              %p.price ¥ #{@sold.sold_price}
             - else
-              %p.price $---
-            %p.sold #{item.stock} left
+              %p.price ¥---
+            %p.sold 出品数 #{item.stock}
             %p.stock #{item.color.color }
   .hako2
     %p.lowest
@@ -120,13 +126,13 @@
           .text
             %p.brand  #{item.kind.brand.brand}
             %p.kinds #{item.kind.name}
-            %p.ask Last Deal
+            %p.ask 最終取引
             - if item.sold_prices[0].present?
               - @sold = item.sold_prices.sort.last
-              %p.price $ #{@sold.sold_price}
+              %p.price ¥ #{@sold.sold_price}
             - else
-              %p.price $---
-            %p.sold #{item.stock} left
+              %p.price ¥---
+            %p.sold 出品数 #{item.stock}
             %p.stock #{item.color.color }
   .hako3
     %p.highest
@@ -141,11 +147,11 @@
           .text
             %p.brand  #{item.kind.brand.brand}
             %p.kinds #{item.kind.name}
-            %p.ask Last Deal
+            %p.ask 最終取引
             - if item.sold_prices[0].present?
               - @sold = item.sold_prices.sort.last
-              %p.price $ #{@sold.sold_price}
+              %p.price ¥ #{@sold.sold_price}
             - else
-              %p.price $---
-            %p.sold #{item.stock} left
+              %p.price ¥---
+            %p.sold 出品数 #{item.stock}
             %p.stock #{item.color.color }

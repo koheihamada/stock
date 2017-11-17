@@ -1,21 +1,22 @@
 .navbar {
   width: 100%;
-  height: 100px;
+  height: 80px;
   background-color: white;
   position: fixed;
   z-index: 1000;
+  border-bottom: 1px solid black;
   &__left{
     padding: 10px 0 0 40px;
     float: left;
     img {
       height: 40px;
       width: 90px;
-      padding-top: 10px;
+      padding-top: 18px;
     }
   }
   &__right{
     float: right;
-    padding-top: 35px;
+    padding-top: 30px;
     padding-right: 40px;
     ul{
       a:-webkit-any-link {
@@ -50,6 +51,17 @@
     padding-top: 10px;
     font-family: 'Osaka';
   }
+  h4{
+    font-size: 20px;
+    text-align: center;
+    color: black;
+    padding-top: 10px;
+    text-decoration: none;
+    a {
+      color: red;
+    }
+  }
+
   .box{
     padding-top: 20px;
     padding-right: 60px;
