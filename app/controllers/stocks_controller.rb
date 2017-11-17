@@ -60,9 +60,12 @@ class StocksController < ApplicationController
 
   def sell
     @sell_price = SellPrice.new(sell_params)
-    @sell_price.save
+    if @sell_price.save
     @sold_price = SoldPrice.new
     redirect_to stock_path(params[:item_id])
+    else
+      redirect_to stock_path(params[:item_id]), alert: "５０以上にしてね" 
+    end
   end
 
 
