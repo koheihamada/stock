@@ -1,35 +1,4 @@
-.navbar
-  .navbar__left
-    = link_to image_tag("#{asset_path "monokabu.png"}", alt: "logo", height: "80", width: "100"), root_path
-  .navbar__right
-    %ul
-      =link_to new_item_path do
-        %li
-          テスト
-      =link_to stocks_path do
-        %li
-          ホーム
-      =link_to stocks_path do
-        %li
-          準備中
-      =link_to stocks_path do
-        %li
-          準備中
-      =link_to stocks_path do
-        %li
-          準備中
-      - if user_signed_in?
-        =link_to destroy_user_session_path, method: :delete do
-          %li
-            サインアウト
-      - else
-        = link_to new_user_registration_path do
-          %li
-            サインアップ
-        = link_to new_user_session_path do
-          %li
-            ログイン
-
+= render 'stocks/navbar'
 .home{ style: "background-image: url(#{asset_path "louisvuitton.jpg"})"}
   %h3
     買いたい値段でモノを買う時代

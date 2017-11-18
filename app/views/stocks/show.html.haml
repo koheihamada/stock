@@ -1,26 +1,4 @@
-.navbar
-  .navbar__left
-    = link_to image_tag("#{asset_path "logo.jpg"}", alt: "logo", height: "80", width: "100"), root_path
-  .navbar__right
-    %ul
-      =link_to new_item_path do
-        %li
-          Browse
-      =link_to stocks_path do
-        %li
-          Blog
-      =link_to stocks_path do
-        %li
-          App
-      =link_to stocks_path do
-        %li
-          Portfolio
-      =link_to stocks_path do
-        %li
-          About
-      =link_to stocks_path do
-        %li
-          Login/Sign Up
+= render 'stocks/navbar'
 -if user_signed_in?
   .content
     .content-top
