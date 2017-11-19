@@ -12,13 +12,11 @@
         サインアップ
       して触ってみてね
   .box
-    .search
-      %p
-        欲しいものを検索してみよう（準備中）
-        %i.fa.fa-search
-    .submit
-      %p
-        サーチ
+    =form_tag search_stocks_path, method: :get do
+      %input.search{:name => "keyword", :placeholder => "欲しいものを検索してみよう", :type => "text", :value => ""}/
+      .submit
+      = submit_tag "Search", class: "submit"
+
   .category
     .box
       %ul

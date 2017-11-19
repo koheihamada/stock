@@ -65,7 +65,7 @@
   .box{
     padding-top: 20px;
     padding-right: 60px;
-    .search{
+    input.search{
       border: solid black 1px;
       width: 500px;
       margin-left: 200px;
@@ -73,6 +73,7 @@
       border-radius: 5px;
       float: left;
       clear:both;
+      padding: 12.5px;
       p{
         padding: 10px 20px;
         .fa{
@@ -82,6 +83,14 @@
           color: gray;
         }
       }
+    }
+    input.submit{
+      background-color: #41ad33;
+      padding: 6px 10px;
+      margin-left: 15px;
+      border-radius: 5px;
+      color: white;
+      font-size: 22px;
     }
     .submit{
       float: left;

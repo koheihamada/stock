@@ -1,70 +1,59 @@
 = render 'stocks/navbar'
 -if user_signed_in?
-  .content
-    .content-top
-      %h1 #{@item.kind.brand.brand} 　#{@item.kind.name}
-      %p #{@item.kind.body}
-      %p Size #{@item.size.size}
-      %p Last Price
+  .show
+    .detail
+      %span.name.clearfix #{@item.kind.brand.brand} 　#{@item.kind.name}
+      .size-last-price
+        %span.size Size #{@item.size.size}
+        - if @item.sold_prices[0].present?
+          - @sold = @item.sold_prices.sort.last
+          %span.price Last Price ¥ #{@sold.sold_price}
 
-      %p
-        sell price(売りたい値段)
-      = form_for @sell_price, url: sell_path(@item.id) do |s|
-        =s.hidden_field :user_id, value: current_user.id
-        =s.hidden_field :item_id, value: @item.id
-        =s.text_field :sell_price
-        =s.submit "send"
+      -# %p #{@item.kind.body}
+      .form-for-buy
+        .now.clearfix
+          - if @sell.present?
+            %span.buy.clearfix ¥ #{@sell.sell_price}で購入可能
+            = form_tag payment_path(@item.id), method: :get do
+              =hidden_field_tag :user_id, current_user.id
+              =hidden_field_tag :item_id, @item.id
+              =hidden_field_tag :sell_price_id, @sell.id
+              =submit_tag "buy at #{@sell.sell_price}（即買い）", class: "buy"
+          - else
+            %p not available
 
-      - if @sell.present?
-        %p
-          最安値（売り=買える）Lowest Bid #{@sell.sell_price}
-      - else
-        %p
-          最安値（売り=買える）Lowest Bid -
-
-
-      - if @sell.present?
-        = form_tag payment_path(@item.id), method: :get do
-          =hidden_field_tag :user_id, current_user.id
-          =hidden_field_tag :item_id, @item.id
-          =hidden_field_tag :sell_price_id, @sell.id
-          =submit_tag "buy at #{@sell.sell_price}（即買い）"
-      - else
-        %p not available
-
-
-      %p
-        buy price（買いたい値段）
-      = form_for @buy_price, url: buy_path(@item.id) do |b|
-        =b.hidden_field :user_id, value: current_user.id
-        =b.hidden_field :item_id, value: @item.id
-        =b.text_field :buy_price
-        =b.submit "send"
-
-      - if @buy.present?
-        %p
-          最高値（買い=売れる）Highest Ask #{@buy.buy_price}
-      - else
-        %p
-          最高値（買い=売れる）Highest Ask -
-
-      - if @buy.present?
-        = form_tag selling_path(@item.id), method: :get do
-          =hidden_field_tag :user_id, current_user.id
-          =hidden_field_tag :item_id, @item.id
-          =hidden_field_tag :buy_price_id, @buy.id
-          =submit_tag "sell at #{@buy.buy_price}（即売り）"
-      - else
-        %p not available
+          - if @buy.present?
+            %span.sell ¥ #{@buy.buy_price}で売却可能
+            = form_tag selling_path(@item.id), method: :get do
+              =hidden_field_tag :user_id, current_user.id
+              =hidden_field_tag :item_id, @item.id
+              =hidden_field_tag :buy_price_id, @buy.id
+              =submit_tag "sell at #{@buy.buy_price}（即売り", class: "sell"
+          - else
+            %p not available
 
 
+        .order
+          %span.bet.clearfix 買いの注文
+          = form_for @buy_price, url: buy_path(@item.id) do |b|
+            =b.hidden_field :user_id, value: current_user.id
+            =b.hidden_field :item_id, value: @item.id
+            =b.text_field :buy_price
+            =b.submit "send", class: "buy"
+          %span.ask.clearfix 売りの注文
+          = form_for @sell_price, url: sell_path(@item.id) do |s|
+            =s.hidden_field :user_id, value: current_user.id
+            =s.hidden_field :item_id, value: @item.id
+            =s.text_field :sell_price
+            =s.submit "send", class: "sell"
 
-
-      %img
-        - if @item.kind.images[0].present?
-          = image_tag "#{@item.kind.images[0].image.to_s}",size:"600*400"
-        - else
-          %img(src= "#{asset_path "default.jpg"}")
+      .fotosection
+        %img
+          - if @item.kind.images[0].present?
+            - @item.kind.images.each do |image|
+              = image_tag "#{image.image.to_s}",size:"600*400"
+          - else
+            %img(src= "#{asset_path "default.jpg"}")
 
 -else
   .content

@@ -2,8 +2,15 @@ class StocksController < ApplicationController
 
   def index
     @item = Item.all
-    # @sold =SoldPrice.order("sold_price DESC").last
+
+
   end
+
+  def search
+    @product = Kind.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
+  end
+
+
 
   def new
     @stock = Kind.new
@@ -64,7 +71,7 @@ class StocksController < ApplicationController
     @sold_price = SoldPrice.new
     redirect_to stock_path(params[:item_id])
     else
-      redirect_to stock_path(params[:item_id]), alert: "５０以上にしてね" 
+      redirect_to stock_path(params[:item_id]), alert: "５０以上にしてね"
     end
   end
 

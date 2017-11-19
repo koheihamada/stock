@@ -1,0 +1,102 @@
+.show{
+  padding-top: 110px;
+  width: 100%;
+  .detail{
+    padding: 20px 0 0 50px;
+    span.name{
+      font-size: 50px;
+      font-family: hoge;
+
+    }
+    .size-last-price{
+      height: 60px;
+      span.size{
+        font-size: 30px;
+        font-family: hoge;
+        float: left;
+        line-height: 60px;
+      }
+      span.price{
+        padding-left: 110px;
+        font-size: 30px;
+        font-family: hoge;
+        line-height: 60px;
+      }
+    }
+    .form-for-buy{
+      .now{
+        span.buy{
+          font-size: 20px;
+          float: left;
+        }
+        input.buy{
+          font-size: 15px;
+          margin-left: 10px;
+          background-color: #41ad33;
+          float: left;
+        }
+        span.sell{
+          font-size: 20px;
+          padding-left: 50px;
+          float: left;
+        }
+        input.sell{
+          font-size: 15px;
+          margin-left: 10px;
+          background-color: #ff5a5f;
+        }
+
+      }
+      .order {
+        padding-top: 20px;
+        border-bottom: 2px solid black;
+        width: 80%;
+        height: 100px;
+        span.bet{
+          font-size: 15px;
+          float: left;
+          text-align: left;
+        }
+        form#new_buy_price.new_buy_price {
+          height: 50px;
+          float: left;
+          input#buy_price_buy_price{
+            padding-left: 10px;
+            margin-left: 50px;
+          }
+          input.buy{
+            background-color: #41ad33;
+            font-size: 15px;
+          }
+        }
+        span.ask {
+          font-size: 15px;
+          float: left;
+          text-align: left;
+          padding-left: 30px;
+        }
+        form#new_sell_price.new_sell_price {
+          height: 50px;
+          float: left;
+          input#sell_price_sell_price{
+            padding-left: 10px;
+            margin-left: 50px;
+          }
+          input.sell{
+            background-color: #ff5a5f;
+            font-size: 15px;
+          }
+        }
+      }
+    }
+    .fotosection{
+      margin: 0 auto;
+      img{
+        width: 30%;
+        height: 30%;
+      }
+    }
+  }
+
+
+}
