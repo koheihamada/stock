@@ -5,8 +5,8 @@
       %span.name.clearfix #{@item.kind.brand.brand} 　#{@item.kind.name}
       .size-last-price
         %span.size Size #{@item.size.size}
-        - if @item.sold_prices[0].present?
-          - @sold = @item.sold_prices.sort.last
+        - if @item.sold_price_for_sells[0].present?
+          - @sold = @item.sold_price_for_sells.sort.last
           %span.price Last Price ¥ #{@sold.sold_price}
 
       -# %p #{@item.kind.body}

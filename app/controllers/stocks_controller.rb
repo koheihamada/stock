@@ -28,7 +28,7 @@ class StocksController < ApplicationController
     @sell_price = SellPrice.new
     @sell = SellPrice.where(item_id: params[:id]).order("sell_price DESC").last
     @buy_price = BuyPrice.new
-    @buy = BuyPrice.where(item_id: params[:id]).order("buy_price DESC").last
+    @buy = BuyPrice.where(item_id: params[:id]).order("buy_price ASC").last
     @payment = Payment.new
   end
 
@@ -43,14 +43,13 @@ class StocksController < ApplicationController
     @user = current_user
     @item = Item.find(params[:item_id])
     @sell = SellPrice.where(item_id: params[:item_id]).order("sell_price DESC").last
-    @payment = Payment.new(confirm_params)
+    @payment = Payment.new(payment_confirm_params)
     if @payment.save
       Payjp.api_key = Rails.application.secrets.PAYJP_SECRET_KEY
       Payjp::Charge.create(currency: 'jpy', amount: @payment.sell_price.sell_price, card: params['payjp-token'])
-      @sold_price = SoldPrice.create(sold_price_params)
+      @sold_price = SoldPriceForSell.create(sold_price_for_sell_params)
       sell = SellPrice.where(item_id: params[:item_id]).order("sell_price DESC").last
       sell.destroy
-      redirect_to root_path, notice: "支払いが完了しました"
     else
       redirect_to root_path, notice: "matigae"
     end
@@ -63,12 +62,28 @@ class StocksController < ApplicationController
   end
 
   def selling
+    @selling = Selling.new(selling_params)
+    @item = Item.find(params[:item_id])
+    @user = current_user
+    @buy = BuyPrice.find(params[:buy_price_id])
+  end
+
+  def selling_confirm
+    @user = current_user
+    @item = Item.find(params[:item_id])
+    @buy = BuyPrice.where(item_id: params[:item_id]).order("buy_price ASC").last
+    @selling = Selling.new(selling_confirm_params)
+    if @selling.save
+      @sold_price = SoldPriceForBuy.create(sold_price_for_buy_params)
+      buy = BuyPrice.where(item_id: params[:item_id]).order("buy_price ASC").last
+      buy.destroy
+    end
   end
 
   def sell
     @sell_price = SellPrice.new(sell_params)
     if @sell_price.save
-    @sold_price = SoldPrice.new
+    @sold_price = SoldPriceForSell.new
     redirect_to stock_path(params[:item_id])
     else
       redirect_to stock_path(params[:item_id]), alert: "５０以上にしてね"
@@ -94,15 +109,26 @@ class StocksController < ApplicationController
     params.require(:buy_price).permit(:buy_price, :user_id, :item_id)
   end
 
+  def selling_params
+    params.permit(:user_id, :item_id, :buy_price_id)
+  end
+
   def payment_params
     params.permit(:user_id, :item_id, :sell_price_id)
   end
 
-  def confirm_params
+  def selling_confirm_params
+    params.permit(:item_id, :sold_price).merge(buy_price_id: @buy.id, user_id: current_user.id)
+  end
+
+  def payment_confirm_params
     params.permit(:item_id, :sold_price).merge(sell_price_id: @sell.id, user_id: current_user.id)
   end
 
-  def sold_price_params
+  def sold_price_for_sell_params
     params.permit(:item_id).merge(sold_price: @payment.sell_price.sell_price, payment_id: @payment.id )
+  end
+  def sold_price_for_buy_params
+    params.permit(:item_id).merge(sold_price: @selling.buy_price.buy_price, selling_id: @selling.id )
   end
 end

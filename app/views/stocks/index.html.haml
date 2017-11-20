@@ -73,8 +73,8 @@
             %p.brand  #{item.kind.brand.brand}
             %p.kinds #{item.kind.name}
             %p.ask 最終取引
-            - if item.sold_prices[0].present?
-              - @sold = item.sold_prices.sort.last
+            - if item.sold_price_for_sells[0].present?
+              - @sold = item.sold_price_for_sells.sort.last
               %p.price ¥ #{@sold.sold_price}
             - else
               %p.price ¥---
@@ -94,8 +94,8 @@
             %p.brand  #{item.kind.brand.brand}
             %p.kinds #{item.kind.name}
             %p.ask 最終取引
-            - if item.sold_prices[0].present?
-              - @sold = item.sold_prices.sort.last
+            - if item.sold_price_for_sells[0].present?
+              - @sold = item.sold_price_for_sells.sort.last
               %p.price ¥ #{@sold.sold_price}
             - else
               %p.price ¥---
@@ -115,8 +115,8 @@
             %p.brand  #{item.kind.brand.brand}
             %p.kinds #{item.kind.name}
             %p.ask 最終取引
-            - if item.sold_prices[0].present?
-              - @sold = item.sold_prices.sort.last
+            - if item.sold_price_for_sells[0].present?
+              - @sold = item.sold_price_for_sells.sort.last
               %p.price ¥ #{@sold.sold_price}
             - else
               %p.price ¥---

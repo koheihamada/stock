@@ -1,0 +1,33 @@
+= render 'stocks/navbar'
+.content
+  .content-top
+    %h1 #{@selling.item.kind.brand.brand} &nbsp; &nbsp; #{@selling.item.kind.name}
+    %p #{@selling.item.kind.body}
+    %p Size #{@selling.item.size.size}
+    %p 売却価格 #{@selling.buy_price.buy_price}
+
+    %img
+      - if @selling.item.kind.images[0].present?
+        = image_tag "#{@selling.item.kind.images[0].image.to_s}",width: "50%", height: "50%"
+      - else
+        %img(src= "#{asset_path "default.jpg"}")
+
+    .account-detail
+      %p ユーザー情報
+      %p #{@user.name}
+      %p #{@user.address}
+      %p #{@user.number}
+      %p 商品を売却しますか？
+
+      = form_for selling_confirm_path do |f|
+        =f.hidden_field :user_id, value: current_user.id
+        =f.hidden_field :item_id, value: @item.id
+        =f.hidden_field :buy_price_id, value: @buy.id
+        =f.submit "こちらで手続きをっ"
+
+
+      -# = form_tag(action: :payment_confirm, method: :post) do
+      -#   %script.payjp-button{data: { key: "#{Rails.application.secrets.PAYJP_PUBLIC_KEY}"}, src: "https://checkout.pay.jp", type: "text/javascript"}
+      -#
+
+    %p Buy It Right NOW

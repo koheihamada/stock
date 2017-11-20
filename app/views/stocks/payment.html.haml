@@ -4,7 +4,7 @@
     %h1 #{@payment.item.kind.brand.brand} &nbsp; &nbsp; #{@payment.item.kind.name}
     %p #{@payment.item.kind.body}
     %p Size #{@payment.item.size.size}
-    %p price #{@payment.sell_price.sell_price}
+    %p 購入価格 #{@payment.sell_price.sell_price}
 
     %img
       - if @payment.item.kind.images[0].present?
