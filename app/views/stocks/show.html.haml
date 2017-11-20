@@ -20,7 +20,7 @@
               =hidden_field_tag :sell_price_id, @sell.id
               =submit_tag "buy at #{@sell.sell_price}（即買い）", class: "buy"
           - else
-            %p not available
+            %p まだ出品されていません.
 
           - if @buy.present?
             %span.sell ¥ #{@buy.buy_price}で売却可能
@@ -30,7 +30,7 @@
               =hidden_field_tag :buy_price_id, @buy.id
               =submit_tag "sell at #{@buy.buy_price}（即売り", class: "sell"
           - else
-            %p not available
+            %p まだ購入者がいません.
 
 
         .order

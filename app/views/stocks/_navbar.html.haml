@@ -1,31 +1,31 @@
 .navbar
   .navbar__left
-    = link_to image_tag("#{asset_path "monokabu.png"}", alt: "logo", height: "80", width: "100"), root_path
+    = link_to root_path do
+      = image_tag("#{asset_path "monokabu.png"}", alt: "logo", height: "80", width: "100")
+    =form_tag search_stocks_path, method: :get do
+      %input.search{:name => "keyword", :placeholder => "検索 ex. jordan", :type => "text", :value => ""}/
+      .submit
+      = submit_tag "Search", class: "submit"
   .navbar__right
-    %ul
-      =link_to new_item_path do
-        %li
-          テスト
-      =link_to stocks_path do
-        %li
-          ホーム
-      =link_to search_stocks_path do
-        %li
-          検索
-      =link_to stocks_path do
-        %li
-          準備中
-      - if user_signed_in?
-        =link_to user_path(current_user.id) do
+    %ul#nav
+      %li
+        =link_to "ホーム", stocks_path
+        %ul
           %li
-            マイページ
-        =link_to destroy_user_session_path, method: :delete do
+            =link_to  "テスト", new_item_path
           %li
-            サインアウト
-      - else
-        = link_to new_user_registration_path do
+            =link_to "検索", search_stocks_path
           %li
-            サインアップ
-        = link_to new_user_session_path do
-          %li
-            ログイン
+            =link_to "準備中", stocks_path
+
+          - if user_signed_in?
+            %li
+              =link_to "マイページ",user_path(current_user.id)
+            %li
+              =link_to "サインアウト", destroy_user_session_path, method: :delete
+
+          - else
+            %li
+              = link_to "サインアップ", new_user_registration_path
+            %li
+              = link_to "ログイン", new_user_session_path

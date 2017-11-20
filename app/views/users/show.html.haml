@@ -1,22 +1,27 @@
+= render 'stocks/navbar'
+.account-info
+  %p.clearfix
+    アカウント名：#{@user.name}
+  %p.clearfix
+    Email：#{@user.email}
+  %p.clearfix
+    電話番号：#{@user.number}
+  %p.clearfix
+    住所：#{@user.address}
 
-%p
-  アカウント名#{@user.name}
-%p
-  住所#{@user.address}
-%p
-  電話番号#{@user.number}
-%p
-  Email #{@user.email}
-
-
-%p
-  入札履歴
-- @user.sell_prices.each do |mono|
-  $ #{mono.sell_price} で
-  #{mono.item.kind.name} を入札中
-
-%p
-  購入履歴
-- @user.payments.each do |good|
-  $ #{good.sold_price} で
-  #{good.item.kind.name} を購入済み
+.history
+  %p 入札履歴
+  - @user.sell_prices.each do |mono|
+    .history-now
+      %img.clearfix
+        -if mono.item.kind.images[0].present?
+          =link_to stock_path(mono.item.id) do
+            = image_tag "#{mono.item.kind.images[0].image.to_s}"
+      =link_to stock_path(mono.item.id) do
+        %li.clearfix #{mono.sell_price}円で#{mono.item.kind.name}を入札中 (入札時間：#{mono.created_at})
+.buy-history
+  %p
+    購入履歴
+  - @user.payments.each do |good|
+    -good.sold_price_for_sells.each do |price|
+      %li $ #{price.sold_price} で #{price.item.kind.name} を購入済み(購入時間 #{price.created_at})
