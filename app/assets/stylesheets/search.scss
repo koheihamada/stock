@@ -1,10 +1,28 @@
 .search-result{
   padding-top: 100px;
+  .side-bar{
+    height: 100%;
+    float: left;
+    padding: 50px 20px 0 20px;
+    border: 2px solid black;
+    margin-top: 90px;
+    ul{
+      font-size: 25px;
+      font-family: monospace;
+      font-weight: bold;
+    }
+    li{
+      list-style-type: square;
+      font-family: monospace;
+      font-size: 18px;
+    }
+  }
   .search{
     padding:5px 0;
-    width: 100%;
+    width: 80%;
+    float: left;
     form{
-      margin: 0 auto;
+      margin: 0 0 0 50px;
     }
     input.search{
       border: solid black 1px;
@@ -23,21 +41,24 @@
       font-size: 15px;
     }
   }
-  p.result {
+  span.result {
     text-align: center;
     padding-bottom: 15px;
     font-family: hoge;
     font-size: 30px;
+    padding-left: 270px;
   }
   .hako{
-    padding-left: 100px;
+    box-sizing:  border-box;
     margin: 0 auto;
+    width: 70%;
     .lineup{
       border: 1px solid black;
       float: left;
       padding: 10px 30px;
       text-align: center;
       .name-color{
+        font-family: monospace;
         white-space: nowrap;
         text-align: left;
         height: 40px;
