@@ -1,7 +1,13 @@
 = form_for @item do |f|
+  %p スットク（基本0）
   = f.text_field :stock
+  %p 希望価格
   = f.text_field :retail_price
+  %p サイズ
   = f.collection_check_boxes(:size_id, Size.all, :id, :size)
+  %p 色
   = f.collection_check_boxes(:color_id, Color.all, :id, :color)
+  %p 種類
   = f.collection_check_boxes(:kind_id, Kind.all, :id, :name)
+  %p 提出
   = f.submit "send"

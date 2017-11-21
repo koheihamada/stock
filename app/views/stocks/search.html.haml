@@ -1,12 +1,23 @@
 = render 'stocks/navbar'
 .search-result
-  .search
+  .side-bar
+    -@brand.each do |brand|
+      %ul #{brand.brand}
+      -brand.kinds.each do |name|
+        -name.items.each do |item|
+          = link_to stock_path(item.id) do
+            %li #{name.name} サイズ(#{item.size.size})
+      
+  .search.clearfix
     =form_tag search_stocks_path, method: :get do
       %input.search{:name => "keyword", :placeholder => "欲しいものを検索してみよう（中央寄せ。。。）", :type => "text", :value => ""}/
       .submit
       = submit_tag "Search", class: "submit"
-  %p.result 検索結果
-  .hako
+
+
+
+  %span.result 検索結果
+  .hako.clearfix
     - @product.each do |product|
       - product.items.each do |item|
         .lineup.clearfix
@@ -21,4 +32,3 @@
             %p size #{item.size.size}
           - else
             %p 該当サイズなし
-  
