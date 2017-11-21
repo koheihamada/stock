@@ -118,11 +118,11 @@ class StocksController < ApplicationController
   end
 
   def selling_confirm_params
-    params.permit(:item_id, :sold_price).merge(buy_price_id: @buy.id, user_id: current_user.id)
+    params.permit(:item_id, :sold_price).merge(buy_price_id: @buy.id, buyer_user_id: @buy.user.id, user_id: current_user.id)
   end
 
   def payment_confirm_params
-    params.permit(:item_id, :sold_price).merge(sell_price_id: @sell.id, user_id: current_user.id)
+    params.permit(:item_id, :sold_price).merge(sell_price_id: @sell.id, seller_user_id: @sell.user_id, user_id: current_user.id)
   end
 
   def sold_price_for_sell_params
