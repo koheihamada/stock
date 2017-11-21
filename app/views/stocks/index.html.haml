@@ -68,7 +68,7 @@
     %p.popular
       MOST POPULAR
     .supply-section__popular.clearfix
-      - @item.each do |item|
+      - @item.first(5).each do |item|
         .mono
           - if item.kind.images[0].present?
             = link_to image_tag(item.kind.images[0].image.to_s), stock_path(item.id)
@@ -89,7 +89,7 @@
     %p.lowest
       NEW LOWEST ASKS
     .supply-section__lowest.clearfix
-      - @item.each do |item|
+      - @item.last(5).each do |item|
         .mono
           - if item.kind.images[0].present?
             = link_to image_tag(item.kind.images[0].image.to_s), stock_path(item.id)
@@ -110,7 +110,7 @@
     %p.highest
       NEW HIGHEST BIDS
     .supply-section__highest.clearfix
-      - @item.each do |item|
+      - @item.first(3).each do |item|
         .mono
           - if item.kind.images[0].present?
             = link_to image_tag(item.kind.images[0].image.to_s), stock_path(item.id)

@@ -8,6 +8,7 @@ class StocksController < ApplicationController
 
   def search
     @product = Kind.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
+    @brand = Brand.all
   end
 
 
