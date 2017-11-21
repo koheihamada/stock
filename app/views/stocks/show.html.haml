@@ -28,7 +28,7 @@
               =hidden_field_tag :user_id, current_user.id
               =hidden_field_tag :item_id, @item.id
               =hidden_field_tag :buy_price_id, @buy.id
-              =submit_tag "sell at #{@buy.buy_price}（即売り", class: "sell"
+              =submit_tag "sell at #{@buy.buy_price}（即売り)", class: "sell"
           - else
             %p まだ購入者がいません.
 

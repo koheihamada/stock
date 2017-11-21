@@ -19,13 +19,21 @@
             =link_to "準備中", stocks_path
 
           - if user_signed_in?
-            %li
-              =link_to "マイページ",user_path(current_user.id)
-            %li
-              =link_to "サインアウト", destroy_user_session_path, method: :delete
+            %ul#navi
+              %li.sign
+                My Account
+                %ul
+                  %li
+                    =link_to "マイページ",user_path(current_user.id)
+                  %li
+                    =link_to "サインアウト", destroy_user_session_path, method: :delete
 
           - else
-            %li
-              = link_to "サインアップ", new_user_registration_path
-            %li
-              = link_to "ログイン", new_user_session_path
+            %ul#navi
+              %li.sign
+                My Account
+                %ul
+                  %li
+                    = link_to "サインアップ", new_user_registration_path
+                  %li
+                    = link_to "ログイン", new_user_session_path
