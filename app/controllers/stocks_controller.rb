@@ -2,8 +2,6 @@ class StocksController < ApplicationController
 
   def index
     @item = Item.all
-
-
   end
 
   def search
@@ -90,7 +88,6 @@ class StocksController < ApplicationController
       redirect_to stock_path(params[:item_id]), alert: "５０以上にしてね"
     end
   end
-
 
 
   private

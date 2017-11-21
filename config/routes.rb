@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users
   root 'stocks#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -11,7 +12,7 @@ Rails.application.routes.draw do
 
   resources :items, only: [:new, :create]
   resources :images, only: [:new, :create]
-  resources :users, only: [:edit, :show]
+  resources :users, only: [:edit, :show, :index, :destroy]
 
   post   '/stocks/:item_id/sell' => 'stocks#sell',   as: 'sell'
   post   '/stocks/:item_id/buy' => 'stocks#buy',     as: 'buy'

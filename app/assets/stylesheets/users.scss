@@ -12,8 +12,12 @@
 .history{
   padding-left: 110px;
   padding-top: 20px;
+  padding-bottom: 20px;
   p{
     font-size: 25px;
+  }
+  p.buy{
+    padding-top: 50px;
   }
   .history-now{
     height: auto;
@@ -26,7 +30,7 @@
     li{
       list-style:none;
       padding: 50px 5px 0px 5px;
-      font-size: 25px;
+      font-size: 20px;
     }
     img{
       width: 10%;

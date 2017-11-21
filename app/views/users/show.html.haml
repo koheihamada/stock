@@ -9,16 +9,35 @@
   %p.clearfix
     住所：#{@user.address}
 
+
+
+
 .history
-  %p 入札履歴
-  - @user.sell_prices.each do |mono|
+  %p.sell 入札履歴(売り)
+  - @sell.each do |sell|
     .history-now
       %img.clearfix
-        -if mono.item.kind.images[0].present?
-          =link_to stock_path(mono.item.id) do
-            = image_tag "#{mono.item.kind.images[0].image.to_s}"
-      =link_to stock_path(mono.item.id) do
-        %li.clearfix #{mono.sell_price}円で#{mono.item.kind.name}を入札中 (入札時間：#{mono.created_at})
+        -if sell.item.kind.images[0].present?
+          =link_to stock_path(sell.item.id) do
+            = image_tag "#{sell.item.kind.images[0].image.to_s}"
+      =link_to user_path(sell.id, sell_price: sell.sell_price), method: :delete do
+        %button #{sell.item.kind.name}の売りを削除
+      =link_to stock_path(sell.item.id) do
+        %li.clearfix #{sell.sell_price}円で#{sell.item.kind.name}を売りで入札中 (入札時：#{sell.created_at})
+
+
+  %p.buy 入札履歴(買い)
+  -@buy.each do |buy|
+    .history-now
+      %img.clearfix
+        -if buy.item.kind.images[0].present?
+          =link_to stock_path(buy.item.id) do
+            = image_tag "#{buy.item.kind.images[0].image.to_s}"
+          =link_to user_path(buy.id), method: :delete do
+            %button #{buy.item.kind.name}の買いを削除
+          = link_to stock_path(buy.item.id) do
+            %li.clearfix #{buy.buy_price}縁で#{buy.item.kind.name}を買いで入札中(入札時：#{buy.created_at})
+
 .buy-history
   %p
     購入履歴
