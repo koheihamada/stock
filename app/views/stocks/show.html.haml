@@ -82,3 +82,9 @@
           = image_tag "#{@item.kind.images[0].image.to_s}",size:"600*400"
         - else
           %img(src= "#{asset_path "default.jpg"}")
+
+
+
+-if @item.sold_price_for_buys.present?
+  %h3 売買動向
+  = area_chart @chart_data
