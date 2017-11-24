@@ -1,4 +1,4 @@
-$(function(){
+$(document).on('turbolinks:load', function() {
   $('.single-item').slick({
     accessibility: true,
     adaptiveHeight: false,
