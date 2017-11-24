@@ -2,16 +2,6 @@ class StocksController < ApplicationController
 
   def index
     @item = Item.all
-    chart_data = SoldPriceForBuy.order('created_at DESC')
-    @chart_data = []
-      chart_data.each do | chart |
-        datas = []
-       created_at = chart.created_at
-        sold_price = chart.sold_price
-        datas << created_at
-        datas << sold_price
-        @chart_data << datas
-      end
   end
 
   def search
@@ -39,16 +29,6 @@ class StocksController < ApplicationController
     @buy_price = BuyPrice.new
     @buy = BuyPrice.where(item_id: params[:id]).order("buy_price ASC").last
     @payment = Payment.new
-    chart_data = @item.sold_price_for_buys.order('created_at DESC')
-    @chart_data = []
-      chart_data.each do | chart |
-        datas = []
-       created_at = chart.created_at
-        sold_price = chart.sold_price
-        datas << created_at
-        datas << sold_price
-        @chart_data << datas
-      end
   end
 
   def payment
