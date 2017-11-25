@@ -34,18 +34,7 @@
 
 
         .order
-          %span.bet.clearfix 買いの注文
-          = form_for @buy_price, url: buy_path(@item.id) do |b|
-            =b.hidden_field :user_id, value: current_user.id
-            =b.hidden_field :item_id, value: @item.id
-            =b.text_field :buy_price
-            =b.submit "send", class: "buy"
-          %span.ask.clearfix 売りの注文
-          = form_for @sell_price, url: sell_path(@item.id) do |s|
-            =s.hidden_field :user_id, value: current_user.id
-            =s.hidden_field :item_id, value: @item.id
-            =s.text_field :sell_price
-            =s.submit "send", class: "sell"
+          = render 'stocks/modal'
 
       .fotosection
         %img

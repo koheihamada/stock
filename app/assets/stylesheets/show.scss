@@ -78,9 +78,7 @@
           input.buy{
             background-color: #41ad33;
             border: #41ad33;
-            border-radius: 5px;
-            padding: 4px 7px 5px 7px;
-            font-size: 19px;
+            font-size: 14px;
             color: white;
           }
         }
@@ -99,11 +97,10 @@
             margin-left: 15px;
           }
           input.sell{
-            background-color: #ff5a5f;
-            border: #ff5a5f;
+            background-color: #41ad33;
+            border: #41ad33;
             border-radius: 5px;
-            padding: 4px 7px 5px 7px;
-            font-size: 19px;
+            font-size: 14px;
             color: white;
           }
         }
@@ -117,6 +114,9 @@
       }
     }
   }
+}
 
-
+h3{
+  text-align: center;
+  padding-right: 110px;
 }
