@@ -41,6 +41,6 @@
 .buy-history
   %p
     購入履歴
-  - @user.payments.each do |good|
+  - @user.payments.includes(:sold_price_for_sells).each do |good|
     -good.sold_price_for_sells.each do |price|
       %li $ #{price.sold_price} で #{price.item.kind.name} を購入済み(購入時間 #{price.created_at})

@@ -1,7 +1,7 @@
 class StocksController < ApplicationController
 
   def index
-    @item = Item.all
+    @item = Item.all.includes(:sold_price_for_sells, :color, {kind: [:images, :brand]})
     chart_data = SoldPriceForBuy.order('created_at DESC')
     @chart_data = []
       chart_data.each do | chart |
@@ -16,7 +16,7 @@ class StocksController < ApplicationController
 
   def search
     @product = Kind.where('name LIKE(?)', "%#{params[:keyword]}%").limit(20)
-    @brand = Brand.all
+    @brand = Brand.all.includes(:kinds)
   end
 
 

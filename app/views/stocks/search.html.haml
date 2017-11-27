@@ -4,7 +4,7 @@
     -@brand.each do |brand|
       %ul #{brand.brand}
       -brand.kinds.each do |name|
-        -name.items.each do |item|
+        -name.items.includes(:size).each do |item|
           = link_to stock_path(item.id) do
             %li #{name.name} サイズ(#{item.size.size})
       
@@ -19,7 +19,7 @@
   %span.result 検索結果
   .hako.clearfix
     - @product.each do |product|
-      - product.items.each do |item|
+      - product.items.includes(:kind, :color).each do |item|
         .lineup.clearfix
           .name-color.clearfix
             %span.name.clearfix #{item.kind.name}
