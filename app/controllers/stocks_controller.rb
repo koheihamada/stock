@@ -19,8 +19,6 @@ class StocksController < ApplicationController
     @brand = Brand.all.includes(:kinds)
   end
 
-
-
   def new
     @stock = Kind.new
     @stock.items.build
@@ -66,6 +64,8 @@ class StocksController < ApplicationController
     if @payment.save
       Payjp.api_key = Rails.application.secrets.PAYJP_SECRET_KEY
       Payjp::Charge.create(currency: 'jpy', amount: @payment.sell_price.sell_price, card: params['payjp-token'])
+      PaymentMailer.payment_email(current_user, @payment).deliver
+      ShipmentMailer.shipment_email(@payment).deliver
       @sold_price = SoldPriceForSell.create(sold_price_for_sell_params)
       sell = SellPrice.where(item_id: params[:item_id]).order("sell_price DESC").last
       sell.destroy
