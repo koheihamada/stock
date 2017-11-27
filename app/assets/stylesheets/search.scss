@@ -55,7 +55,9 @@
     .lineup{
       border: 1px solid black;
       float: left;
-      padding: 10px 30px;
+      padding: 15px;
+      max-width: 200px;
+    width: 25%;
       text-align: center;
       .name-color{
         font-family: monospace;
@@ -68,7 +70,7 @@
         }
         span.color{
           font-size: 15px;
-          line-height: 45px;
+          line-height: 15px;
           float: left;
         }
       }

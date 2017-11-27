@@ -13,22 +13,22 @@
       .form-for-buy
         .now.clearfix
           - if @sell.present?
-            %span.buy.clearfix ¥ #{@sell.sell_price}で購入可能
+            %span.buy.clearfix 現在 ¥#{@sell.sell_price}で購入可能
             = form_tag payment_path(@item.id), method: :get do
               =hidden_field_tag :user_id, current_user.id
               =hidden_field_tag :item_id, @item.id
               =hidden_field_tag :sell_price_id, @sell.id
-              =submit_tag "buy at #{@sell.sell_price}（即買い）", class: "buy"
+              =submit_tag " #{@sell.sell_price}円で即買い", class: "buy"
           - else
             %p まだ出品されていません.
 
           - if @buy.present?
-            %span.sell ¥ #{@buy.buy_price}で売却可能
+            %span.sell 現在 ¥#{@buy.buy_price}で売却可能
             = form_tag selling_path(@item.id), method: :get do
               =hidden_field_tag :user_id, current_user.id
               =hidden_field_tag :item_id, @item.id
               =hidden_field_tag :buy_price_id, @buy.id
-              =submit_tag "sell at #{@buy.buy_price}（即売り)", class: "sell"
+              =submit_tag "#{@buy.buy_price}円で即売り", class: "sell"
           - else
             %p まだ購入者がいません.
 
