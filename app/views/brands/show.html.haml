@@ -6,7 +6,7 @@
       #left.span3
         %ul#menu-group-1.nav.menu
           %li.item-1.deeper.parent.active
-            %a{:href => "#"}
+            %a{}
               %span.sign{"data-parent" => "#menu-group-1", "data-toggle" => "collapse", :href => "#sub-item-#{i}"}
                 %i.icon-plus.icon-white
               %span.lbl #{category.category} (親)
@@ -20,10 +20,9 @@
     -if @item.kind.images.present?
       -@items.each do |item|
         .box
-          %span.clearfix #{item.kind.name}
-          %spna.clearfix #{item.size.size}
-          %span.clearfix #{item.color.color}
+          %span.clearfix #{item.kind.name} #{item.color.color}
           = link_to image_tag(item.kind.images[0].image), stock_path(item)
+          %spna.clearfix サイズ #{item.size.size}
     -else
       -@items.each do |item|
         .box
