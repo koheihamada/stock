@@ -1,6 +1,6 @@
 = render 'stocks/navbar'
 -if user_signed_in?
-  .show
+  .show.clearfix
     .detail
       %span.name.clearfix #{@item.brand.brand} 　#{@item.kind.name}
       .size-last-price
@@ -18,31 +18,30 @@
               =hidden_field_tag :user_id, current_user.id
               =hidden_field_tag :item_id, @item.id
               =hidden_field_tag :sell_price_id, @sell.id
-              =submit_tag " #{@sell.sell_price}円で即買い", class: "buy"
+              =submit_tag " #{@sell.sell_price}円で即買い", class: "clearfix", id:"buy"
           - else
             %p まだ出品されていません.
-
+        .now.clearfix
           - if @buy.present?
             %span.sell 現在 ¥#{@buy.buy_price}で売却可能
             = form_tag selling_path(@item.id), method: :get do
               =hidden_field_tag :user_id, current_user.id
               =hidden_field_tag :item_id, @item.id
               =hidden_field_tag :buy_price_id, @buy.id
-              =submit_tag "#{@buy.buy_price}円で即売り", class: "sell"
+              =submit_tag "#{@buy.buy_price}円で即売り", class: "clearfix", id: "sell"
           - else
             %p まだ購入者がいません.
 
 
-        .order
-          = render 'stocks/modal'
 
-      .fotosection
-        %img
-          - if @item.kind.images[0].present?
-            - @item.kind.images.each do |image|
-              = image_tag "#{image.image.to_s}",size:"600*400"
-          - else
-            %img(src= "#{asset_path "default.jpg"}")
+        = render 'stocks/modal'
+
+    .fotosection.clearfix
+      - if @item.kind.images[0].present?
+        - @item.kind.images.each do |image|
+          = image_tag "#{image.image.to_s}"
+      - else
+        %img(src= "#{asset_path "default.jpg"}")
 
 -else
   .content
