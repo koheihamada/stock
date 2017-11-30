@@ -1,0 +1,35 @@
+-if @brand.id <= 3
+  = render 'stocks/navbar'
+  %p.head #{@brand.brand} の一覧
+  .cont
+    -@brand.categories.each_with_index do |category, i|
+      #left.span3
+        %ul#menu-group-1.nav.menu
+          %li.item-1.deeper.parent.active
+            %a{:href => "#"}
+              %span.sign{"data-parent" => "#menu-group-1", "data-toggle" => "collapse", :href => "#sub-item-#{i}"}
+                %i.icon-plus.icon-white
+              %span.lbl #{category.category} (親)
+            %ul.children.nav-child.unstyled.small.collapse{id: "sub-item-#{i}"}
+              -category.items.includes(:kind, :size, :color).where(brand_id: @brand.id).each do |item|
+                %li.item-2.deeper.parent.active
+                  =link_to "#{item.kind.name} #{item.size.size} #{item.color.color}", stock_path(item.id), class: "lbl"
+
+
+  .allll
+    -if @item.kind.images.present?
+      -@items.each do |item|
+        .box
+          %span.clearfix #{item.kind.name}
+          %spna.clearfix #{item.size.size}
+          %span.clearfix #{item.color.color}
+          = link_to image_tag(item.kind.images[0].image), stock_path(item)
+    -else
+      -@items.each do |item|
+        .box
+          %span.clearfix #{item.kind.name}
+          = link_to image_tag("#{asset_path "default.jpg"}"), stock_path(item.id)
+
+
+-else
+  このページはありません
