@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171122092929) do
+ActiveRecord::Schema.define(version: 20171130013114) do
 
   create_table "brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "brand",      null: false
@@ -30,6 +30,15 @@ ActiveRecord::Schema.define(version: 20171122092929) do
     t.string   "category",   null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "category_brands", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
+    t.integer  "brand_id"
+    t.integer  "category_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["brand_id"], name: "index_category_brands_on_brand_id", using: :btree
+    t.index ["category_id"], name: "index_category_brands_on_category_id", using: :btree
   end
 
   create_table "colors", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
@@ -53,15 +62,15 @@ ActiveRecord::Schema.define(version: 20171122092929) do
     t.integer  "size_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "category_id"
+    t.integer  "brand_id"
   end
 
   create_table "kinds", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
-    t.text     "body",        limit: 65535
-    t.integer  "category_id"
-    t.integer  "brand_id"
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.text     "body",       limit: 65535
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
