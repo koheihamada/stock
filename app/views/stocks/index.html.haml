@@ -17,17 +17,7 @@
       .submit
       = submit_tag "Search", class: "submit"
 
-  .category
-    .box
-      %ul
-        %li
-          SNEAKER
-        %li
-          STREETWEAR
-        %li
-          WATCHES
-        %li
-          HANDBAG
+
 
 .slider-container
   .single-item
@@ -44,10 +34,10 @@
       = area_chart @chart_data, height: "200px", width: "350px"
       .fonts
         %p
-          ブランド別 INDEX
+          NIKE INDEX
         %h1
           700000
-        %h2 -¥22.52(4.5%)
+        %h2 ¥ #@price
     .foto
       = area_chart @chart_data, height: "200px", width: "350px"
       .fonts
