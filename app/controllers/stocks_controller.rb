@@ -12,6 +12,7 @@ class StocksController < ApplicationController
         datas << sold_price
         @chart_data << datas
       end
+    @price = SoldPriceForBuy.average(:sold_price)
   end
 
   def search

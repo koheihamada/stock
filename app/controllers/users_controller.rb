@@ -2,8 +2,8 @@ class UsersController < ApplicationController
 
   def show
     @user = current_user
-    @sell = current_user.sell_prices
-    @buy = current_user.buy_prices
+    @sell = current_user.sell_prices.includes(:item, {item: :kind}, {item:{kind: :images}})
+    @buy = current_user.buy_prices.includes(:item, {item: :kind})
   end
 
 
