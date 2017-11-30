@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :items, only: [:new, :create]
   resources :images, only: [:new, :create]
   resources :users, only: [:edit, :show, :index, :destroy]
+  resources :brands, only: [:show]
 
   post   '/stocks/:item_id/sell' => 'stocks#sell',   as: 'sell'
   post   '/stocks/:item_id/buy' => 'stocks#buy',     as: 'buy'
