@@ -75,7 +75,7 @@
           - else
             = link_to image_tag("#{asset_path "default.jpg"}"), stock_path(item.id)
           .text
-            %p.brand  #{item.kind.brand.brand}
+            %p.brand  #{item.brand.brand}
             %p.kinds #{item.kind.name}
             %p.ask 最終取引
             - if item.sold_price_for_sells[0].present?
@@ -96,7 +96,7 @@
           - else
             = link_to image_tag("#{asset_path "default.jpg"}"), stock_path(item.id)
           .text
-            %p.brand  #{item.kind.brand.brand}
+            %p.brand  #{item.brand.brand}
             %p.kinds #{item.kind.name}
             %p.ask 最終取引
             - if item.sold_price_for_sells[0].present?
@@ -117,7 +117,7 @@
           - else
             = link_to image_tag("#{asset_path "default.jpg"}"), stock_path(item.id)
           .text
-            %p.brand  #{item.kind.brand.brand}
+            %p.brand  #{item.brand.brand}
             %p.kinds #{item.kind.name}
             %p.ask 最終取引
             - if item.sold_price_for_sells[0].present?

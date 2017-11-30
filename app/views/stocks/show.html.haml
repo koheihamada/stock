@@ -2,7 +2,7 @@
 -if user_signed_in?
   .show
     .detail
-      %span.name.clearfix #{@item.kind.brand.brand} 　#{@item.kind.name}
+      %span.name.clearfix #{@item.brand.brand} 　#{@item.kind.name}
       .size-last-price
         %span.size Size #{@item.size.size}
         - if @item.sold_price_for_sells[0].present?
@@ -47,7 +47,7 @@
 -else
   .content
     .content-top
-      %h1 #{@item.kind.brand.brand} 　#{@item.kind.name}
+      %h1 #{@item.brand.brand} 　#{@item.kind.name}
       %p #{@item.kind.body}
       %p Size #{@item.size.size}
       %p Last Price
