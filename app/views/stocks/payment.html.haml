@@ -1,29 +1,67 @@
 = render 'stocks/navbar'
 .content
   .content-top
-    %h1 #{@payment.item.kind.brand.brand} &nbsp; &nbsp; #{@payment.item.kind.name}
-    %p #{@payment.item.kind.body}
-    %p Size #{@payment.item.size.size}
-    %p 購入価格 #{@payment.sell_price.sell_price}
+    %h1 #{@payment.item.brand.brand} &nbsp; &nbsp; #{@payment.item.kind.name}
+    %p.size Size #{@payment.item.size.size}
+    %p.price 購入価格 #{@payment.sell_price.sell_price}
+    %p.info #{@payment.item.kind.body}
 
-    %img
-      - if @payment.item.kind.images[0].present?
-        = image_tag "#{@payment.item.kind.images[0].image.to_s}",width: "50%", height: "50%"
-      - else
-        %img(src= "#{asset_path "default.jpg"}")
+    .howtopay
+      %button#open 購入はこちら
+      #overlay
+      #modalWindow
+        .pricing-table.pricing-three-column.row
+          .plan.col-sm-4.col-lg-4
+            .plan-name-bronze
+              %h2 コンビニ決済
+              %span #{@payment.sell_price.sell_price}円
+            %ul
+              ユーザー情報
+              %li.plan-feature　#{@user.name}
+              %li.plan-feature #{@user.address}
+              %li.plan-feature #{@user.number}
+              %li.plan-feature
+                %a.btn.btn-primary.btn-plan-select{:href => "#"}
+                  %i.icon-white.icon-ok
+                  Select
+          .plan.col-sm-4.col-lg-4{:style => "z-index:55;"}
+            .plan-name-silver
+              %h2　クレジットカード
+              %span
+                #{@payment.sell_price.sell_price}円
+                %span.label.label-warning オススメ
+            %ul
+              ユーザー情報
+              %li.plan-feature　#{@user.name}
+              %li.plan-feature #{@user.address}
+              %li.plan-feature #{@user.number}
+              %li.plan-feature
+                %a.btn.btn-primary.btn-plan-select{:href => "#"}
+                  %i.icon-white.icon-ok
+                  = form_tag(action: :payment_confirm, method: :post) do
+                    %script.payjp-button{data: { key: "#{Rails.application.secrets.PAYJP_PUBLIC_KEY}"}, src: "https://checkout.pay.jp", type: "text/javascript"}
+          .plan.col-sm-4.col-lg-4
+            .plan-name-gold
+              %h2 銀行振込
+              %span #{@payment.sell_price.sell_price}円
+            %ul
+              ユーザー情報
+              %li.plan-feature　#{@user.name}
+              %li.plan-feature #{@user.address}
+              %li.plan-feature #{@user.number}
+              %li.plan-feature
+                %a.btn.btn-primary.btn-plan-select{:href => "#"}
+                  %i.icon-white.icon-ok
+                  Select
+          =fa_icon "times", id: "close"
 
-    .account-detail
-      %p ユーザー情報
-      %p #{@user.name}
-      %p #{@user.address}
-      %p #{@user.number}
-      %p クレジット情報
+  .foto-booth
+    - if @item.kind.images[0].present?
+      - @item.kind.images.each do |image|
+        = image_tag "#{image.image.to_s}"
+    - else
+      %img(src= "#{asset_path "default.jpg"}")
 
-      = form_tag(action: :payment_confirm, method: :post) do
-        %script.payjp-button{data: { key: "#{Rails.application.secrets.PAYJP_PUBLIC_KEY}"}, src: "https://checkout.pay.jp", type: "text/javascript"}
-
-
-    %p Buy It Right NOW
 
 
 = render 'stocks/footer'
