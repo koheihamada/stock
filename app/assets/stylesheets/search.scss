@@ -1,5 +1,5 @@
 .search-result{
-  padding-top: 100px;
+  padding-top: 142px;
   width: 200px;
   float: left;
   #left ul.nav {
@@ -192,8 +192,8 @@
       border: 1px solid black;
       float: left;
       padding: 15px;
-      max-width: 200px;
-    width: 25%;
+    //   max-width: 200px;
+    // width: 25%;
       text-align: center;
       .name-color{
         font-family: monospace;
@@ -201,11 +201,9 @@
         text-align: left;
         height: 40px;
         span.name{
-          font-size: 25px;
           line-height: 40px;
         }
         span.color{
-          font-size: 15px;
           line-height: 15px;
           float: left;
         }
