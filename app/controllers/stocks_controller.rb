@@ -3,6 +3,7 @@ class StocksController < ApplicationController
   def index
     @item = Item.all.includes(:sold_price_for_sells, :color, :brand, {kind: [:images]})
     chart_data = SoldPriceForBuy.order('created_at DESC')
+    chart_data2 = SoldPriceForSell.order('created_at DESC')
     @chart_data = []
       chart_data.each do | chart |
         datas = []
@@ -11,6 +12,14 @@ class StocksController < ApplicationController
         datas << created_at
         datas << sold_price
         @chart_data << datas
+      end
+      chart_data2.each do | chart2 |
+        datas2 = []
+       created_at = chart2.created_at
+        sold_price = chart2.sold_price
+        datas2 << created_at
+        datas2 << sold_price
+        @chart_data << datas2
       end
     @price = SoldPriceForBuy.average(:sold_price)
   end
@@ -38,7 +47,8 @@ class StocksController < ApplicationController
     @buy_price = BuyPrice.new
     @buy = BuyPrice.where(item_id: params[:id]).order("buy_price ASC").last
     @payment = Payment.new
-    chart_data = SoldPriceForBuy.order('created_at DESC')
+    chart_data = SoldPriceForBuy.where(item_id: params[:id]).order('created_at DESC')
+    chart_data2 = SoldPriceForSell.where(item_id: params[:id]).order('created_at DESC')
     @chart_data = []
       chart_data.each do | chart |
         datas = []
@@ -47,6 +57,14 @@ class StocksController < ApplicationController
         datas << created_at
         datas << sold_price
         @chart_data << datas
+      end
+      chart_data2.each do | chart2 |
+        datas2 = []
+       created_at = chart2.created_at
+        sold_price = chart2.sold_price
+        datas2 << created_at
+        datas2 << sold_price
+        @chart_data << datas2
       end
   end
 

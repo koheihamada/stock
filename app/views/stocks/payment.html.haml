@@ -57,10 +57,37 @@
 
   .foto-booth
     - if @item.kind.images[0].present?
-      - @item.kind.images.each do |image|
-        = image_tag "#{image.image.to_s}"
-    - else
+      #carousel-example-generic.carousel.slide{"data-ride" => "carousel", :style => "max-width:960px;margin:auto;"}
+
+        %ol.carousel-indicators
+          %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
+          %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
+          %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
+
+        .carousel-inner{:role => "listbox"}
+          .item.active
+            %img{:alt => "photo1", :src => "#{@item.kind.images[0].image.to_s}"}/
+            .carousel-caption
+              写真1
+          - @item.kind.images[1..-1].each do |image|
+            .item
+              %img{:alt => "photo2", :src => "#{image.image.to_s}"}/
+              .carousel-caption
+                写真2
+
+        %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example-generic", :role => "button"}
+          %span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}
+          %span.sr-only Previous
+        %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-example-generic", :role => "button"}
+          %span.glyphicon.glyphicon-chevron-right{"aria-hidden" => "true"}
+          %span.sr-only Next
+
+    -else
       %img(src= "#{asset_path "default.jpg"}")
+
+
+
+
 
 
 

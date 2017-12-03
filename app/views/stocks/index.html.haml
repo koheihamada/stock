@@ -59,7 +59,7 @@
       MOST POPULAR
     .supply-section__popular.clearfix
       - @item.first(5).each do |item|
-        .mono
+        .col-md-2.col-sm-3.col-xs-6.mono
           - if item.kind.images[0].present?
             = link_to image_tag(item.kind.images[0].image.to_s), stock_path(item.id)
           - else
@@ -80,7 +80,7 @@
       NEW LOWEST ASKS
     .supply-section__lowest.clearfix
       - @item.last(5).each do |item|
-        .mono
+        .col-md-2.col-sm-3.col-xs-6.mono
           - if item.kind.images[0].present?
             = link_to image_tag(item.kind.images[0].image.to_s), stock_path(item.id)
           - else
@@ -101,7 +101,7 @@
       NEW HIGHEST BIDS
     .supply-section__highest.clearfix
       - @item.first(5).each do |item|
-        .mono
+        .col-md-2.col-sm-3.col-xs-6.mono
           - if item.kind.images[0].present?
             = link_to image_tag(item.kind.images[0].image.to_s), stock_path(item.id)
           - else

@@ -8,7 +8,7 @@
 
     .account-detail
       %p ユーザー情報
-      %p #{@user.name}
+      %p #{@user.name}様
       %p #{@user.address}
       %p #{@user.number}
       %p 商品を売却しますか？
@@ -16,7 +16,17 @@
         =f.hidden_field :user_id, value: current_user.id
         =f.hidden_field :item_id, value: @item.id
         =f.hidden_field :buy_price_id, value: @buy.id
-        =f.submit "こちらで手続きをっ"
+        %p 売却をするのであればこちらに
+        %span#pay 売却します
+        #overlay
+        #modalWindow
+          .box
+            %p 売却の手順について#{@selling.item.kind.name}を売却するにあたり、商品が本物であるかの確認が必要となります。そのため、商品を一度弊社（東京都渋谷区)に郵送してください。郵送代はお客様に負担していただき、商品の確認、及び買い手側からの入金を確認次第、登録されている口座に代金をお支払いいたします。
+            =f.submit "確認しました、売却します。"
+          =fa_icon "times", id: "close"
+
+
+
 
   .foto-booth
     - if @selling.item.kind.images[0].present?
