@@ -37,3 +37,37 @@
                     = link_to "サインアップ", new_user_registration_path
                   %li
                     = link_to "ログイン", new_user_session_path
+
+
+
+  %nav.navbar.navbar-default.navbar-fixed-top.container
+    .navbar-header
+      %button{:class => "navbar-toggle", "data-target" => ".target", "data-toggle" => "collapse"}
+        %span{:class => "icon-bar"}
+        %span{:class => "icon-bar"}
+        %span{:class => "icon-bar"}
+      %a{:class => "navbar-brand", :href => "/stocks/"}
+        MonoKabu
+    .collapse.navbar-collapse.target
+      %ul.nav.navbar-nav
+        %li
+          =form_tag search_stocks_path, method: :get do
+            %input.search{:name => "keyword", :placeholder => "検索 ex. jordan", :type => "text", :value => ""}/
+            .submit
+            = submit_tag "Search", class: "submit"
+        %li
+          = link_to "Facebook",  user_facebook_omniauth_authorize_path, :class => 'navbar-link'          
+        %li
+          =link_to "準備中", stocks_path
+
+        - if user_signed_in?
+          %li
+            =link_to "マイページ",user_path(current_user.id)
+          %li
+            =link_to "サインアウト", destroy_user_session_path, method: :delete
+
+        - else
+          %li
+            = link_to "サインアップ", new_user_registration_path
+          %li
+            = link_to "ログイン", new_user_session_path
