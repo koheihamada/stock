@@ -1,147 +1,315 @@
-.show{
-  padding-top: 110px;
-  width: 100%;
-  .detail{
-    padding: 20px 0 0 90px;
-    width: 50%;
-    float: left;
-    span.name{
-      font-size: 37px;
-      font-family: hoge;
-    }
-    .size-last-price{
-      height: 60px;
-      span.size{
-        font-size: 19px;
+@media screen and(min-width: 970px){
+  .show{
+    padding-top: 110px;
+    width: 100%;
+    .detail{
+      padding: 20px 0 0 90px;
+      width: 50%;
+      float: left;
+      span.name{
+        font-size: 37px;
         font-family: hoge;
-        float: left;
-        line-height: 60px;
       }
-      span.price{
-        padding-left: 40px;
-        font-size: 19px;
-        font-family: hoge;
-        line-height: 60px;
+      .size-last-price{
+        height: 60px;
+        span.size{
+          font-size: 19px;
+          font-family: hoge;
+          float: left;
+          line-height: 60px;
+        }
+        span.price{
+          padding-left: 40px;
+          font-size: 19px;
+          font-family: hoge;
+          line-height: 60px;
+        }
       }
-    }
-    .form-for-buy{
-      .now{
-        span.buy{
-          font-size: 15px;
-          padding: 5px;
-          float: left;
-        }
-        input#buy{
-          font-size: 15px;
-          padding: 5px;
-          margin-left: 70px;
-          color: white;
-          background-color: #41ad33;
-          border: 1px solid #41ad33;
-          border-radius: 5px;
-          float: left;
-        }
-        span.sell{
-          padding: 5px;
-          font-size: 15px;
-          padding-top: 20px;
-          float: left;
-        }
-        input#sell{
-          font-size: 15px;
-          margin-left: 90px;
-          margin-top: 12px;
-          padding: 5px 5px;
-          color: white;
-          background-color: #ff5a5f;
-          border: 1px solid #ff5a5f;
-          border-radius: 5px;
-        }
-
-      }
-      .order {
-        padding-top: 20px;
-        // border-bottom: 2px solid black;
-        width: 100%;
-        height: 70px;
-        span.bet{
-          font-size: 15px;
-          padding-top: 5px;
-          padding-left: 5px;
-          float: left;
-          text-align: left;
-        }
-        form#new_buy_price.new_buy_price {
-          margin-left: 40px;
-          height: 50px;
-          float: left;
-
-          input#buy_price_buy_price{
+      .form-for-buy{
+        .now{
+          span.buy{
+            font-size: 15px;
             padding: 5px;
-            margin-left: 17px;
-            width: 68%;
+            float: left;
           }
-          input.buy{
-            background-color: #41ad33;
-            border: #41ad33;
-            font-size: 14px;
+          input#buy{
+            font-size: 15px;
+            padding: 5px;
+            margin-left: 70px;
             color: white;
-            padding: 0;
+            background-color: #41ad33;
+            border: 1px solid #41ad33;
+            border-radius: 5px;
+            float: left;
           }
-          a.btn.btn-primary.buy{
-            padding: 7px 15px;
+          span.sell{
+            padding: 5px;
+            font-size: 15px;
+            padding-top: 20px;
+            float: left;
+          }
+          input#sell{
+            font-size: 15px;
+            margin-left: 90px;
+            margin-top: 12px;
+            padding: 5px 5px;
+            color: white;
+            background-color: #ff5a5f;
+            border: 1px solid #ff5a5f;
+            border-radius: 5px;
+          }
+
+        }
+        .order {
+          padding-top: 20px;
+          // border-bottom: 2px solid black;
+          width: 100%;
+          height: 70px;
+          span.bet{
+            font-size: 15px;
+            padding-top: 5px;
+            padding-left: 5px;
+            float: left;
+            text-align: left;
+          }
+          form#new_buy_price.new_buy_price {
+            margin-left: 40px;
+            height: 50px;
+            float: left;
+
+            input#buy_price_buy_price{
+              padding: 5px;
+              margin-left: 17px;
+              width: 68%;
+            }
+            input.buy{
+              background-color: #41ad33;
+              border: #41ad33;
+              font-size: 14px;
+              color: white;
+              padding: 0;
+            }
+            a.btn.btn-primary.buy{
+              padding: 7px 15px;
+            }
+          }
+        }
+        .order-sell{
+          width: 80%;
+          height: 70px;
+          span.ask {
+            font-size: 15px;
+            padding-top: 5px;
+            float: left;
+            text-align: left;
+          }
+          form#new_sell_price.new_sell_price {
+            height: 50px;
+            float: left;
+            margin-left: 50px;
+            input#sell_price_sell_price{
+              padding: 6px 0 5px 10px;
+              margin-left: 15px;
+            }
+            input.sell{
+              background-color: #41ad33;
+              border: #41ad33;
+              border-radius: 5px;
+              font-size: 14px;
+              color: white;
+            }
           }
         }
       }
-      .order-sell{
-        width: 80%;
-        height: 70px;
-        span.ask {
-          font-size: 15px;
-          padding-top: 5px;
-          float: left;
-          text-align: left;
-        }
-        form#new_sell_price.new_sell_price {
-          height: 50px;
-          float: left;
-          margin-left: 50px;
-          input#sell_price_sell_price{
-            padding: 6px 0 5px 10px;
-            margin-left: 15px;
-          }
-          input.sell{
-            background-color: #41ad33;
-            border: #41ad33;
-            border-radius: 5px;
-            font-size: 14px;
-            color: white;
-          }
-        }
+    }
+    .fotosection{
+      margin: 0 auto;
+      // padding-top: 0px;
+      width: 50%;
+      float: right;
+      .carousel-control.right{
+        right: 45px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.05) 100%);
+      }
+      .carousel-control.left {
+        background-image: linear-gradient(to left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.05) 100%);
+      }
+      img{
+        width: 90%;
+        height: 90%;
+        padding: 15px;
       }
     }
   }
-  .fotosection{
-    margin: 0 auto;
-    // padding-top: 0px;
-    width: 50%;
-    float: right;
-    .carousel-control.right{
-      right: 45px;
-      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.05) 100%);
-    }
-    .carousel-control.left {
-      background-image: linear-gradient(to left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.05) 100%);
-    }
-    img{
-      width: 90%;
-      height: 90%;
-      padding: 15px;
-    }
+
+  h3{
+    text-align: center;
+    padding-right: 110px;
   }
 }
 
-h3{
-  text-align: center;
-  padding-right: 110px;
+
+@media screen and(max-width: 970px){
+  .show{
+    padding-top: 110px;
+    width: 100%;
+    .detail{
+      // padding: 20px 0 0 90px;
+      // width: 50%;
+      // float: left;
+      text-align: center;
+      span.name{
+        font-size: 20px;
+        font-family: hoge;
+      }
+      .size-last-price{
+        height: 40px;
+        text-align: center;
+        span.size{
+          font-size: 14px;
+          font-family: hoge;
+          // float: left;
+          line-height: 20px;
+        }
+        span.price{
+          padding-left: 40px;
+          font-size: 14px;
+          font-family: hoge;
+          line-height: 60px;
+        }
+      }
+      .form-for-buy{
+        .now{
+          clear: none;
+          content: none;
+          display: inline-table;
+          span.buy{
+            // font-size: 15px;
+            // padding: 5px;
+            // float: left;
+            display: none;
+          }
+          input#buy{
+            font-size: 15px;
+            padding: 10px;
+            margin-left: 15px;
+            margin-top: 20px;
+            color: white;
+            background-color: #41ad33;
+            border: 1px solid #41ad33;
+            border-radius: 5px;
+            float: left;
+          }
+          span.sell{
+            // padding: 5px;
+            // font-size: 15px;
+            // padding-top: 20px;
+            // float: left;
+            display: none;
+          }
+          input#sell{
+            font-size: 15px;
+            margin-left: 20px;
+            // margin-top: 12px;
+            padding: 10px;
+            color: white;
+            background-color: #ff5a5f;
+            border: 1px solid #ff5a5f;
+            border-radius: 5px;
+          }
+
+        }
+        .order {
+          padding-top: 20px;
+          // border-bottom: 2px solid black;
+          width: 100%;
+          // height: 150px;
+          // content: "";
+          // display: block;
+          // clear: both;
+          span.bet{
+            font-size: 15px;
+            padding-top: 5px;
+            padding-left: 5px;
+            // float: left;
+            // text-align: left;
+          }
+          form#new_buy_price.new_buy_price {
+            margin-left: 5px;
+            height: 50px;
+            // float: left;
+
+            input#buy_price_buy_price{
+              padding: 5px;
+              margin-left: 17px;
+              width: 68%;
+            }
+            input.buy{
+              background-color: #41ad33;
+              border: #41ad33;
+              font-size: 14px;
+              color: white;
+              padding: 0;
+            }
+            a.btn.btn-primary.buy{
+              padding: 7px 15px;
+            }
+          }
+        }
+        .order-sell{
+          width: 100%;
+          height: 100px;
+          span.ask {
+            font-size: 15px;
+            padding-top: 5px;
+            padding-left: 5px;
+            // float: left;
+            // text-align: left;
+          }
+          form#new_sell_price.new_sell_price {
+            margin-left: 5px;
+            height: 50px;
+            input#sell_price_sell_price{
+              padding: 5px;
+              margin-left: 17px;
+              width: 68%;
+            }
+            input.sell{
+              background-color: #41ad33;
+              border: #41ad33;
+              border-radius: 5px;
+              font-size: 14px;
+              color: white;
+              padding: 0;
+            }
+          }
+        }
+      }
+    }
+    .fotosection{
+      margin: 0 auto;
+      // padding-top: 0px;
+      width: 100%;
+      padding-top: 20px;
+      border-top: 2px solid;
+      // float: right;
+      .carousel-control.right{
+        // right: 45px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.05) 100%);
+      }
+      .carousel-control.left {
+        background-image: linear-gradient(to left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.05) 100%);
+      }
+      img{
+        width: 100%;
+        height: 90%;
+        padding: 15px;
+      }
+    }
+  }
+
+  h3{
+    text-align: center;
+    padding-right: 110px;
+  }
 }
