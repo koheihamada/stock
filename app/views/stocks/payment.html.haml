@@ -7,9 +7,10 @@
     %p.info #{@payment.item.kind.body}
 
     .howtopay
+      %p #{@payment.sell_price.sell_price}円
       %button#open 購入はこちら
       #overlay
-      #modalWindow
+      #modalWindow.payment
         .pricing-table.pricing-three-column
           .plan.col-sm-4.col-lg-4
             .plan-name-bronze

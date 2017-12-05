@@ -69,38 +69,65 @@
 
 
 -else
-  .content
-    .content-top
+  .cube.clearfix
+    .cube-top
       %h1 #{@item.brand.brand} 　#{@item.kind.name}
       %p #{@item.kind.body}
-      %p Size #{@item.size.size}
-      %p Last Price
+      %p.size Size #{@item.size.size}
+      %p 最終取引値
 
       - if @sell.present?
         %p
-          最安値（売り=買える）Lowest Bid #{@sell.sell_price}
+          最安値（売り=買える） #{@sell.sell_price}円
       - else
         %p
-          最安値（売り=買える）Lowest Bid -
+          最安値（売り=買える） -
 
       - if @buy.present?
         %p
-          最高値（買い=売れる）Highest Ask #{@buy.buy_price}
+          最高値（買い=売れる） #{@buy.buy_price}円
       - else
         %p
-          最高値（買い=売れる）Highest Ask -
+          最高値（買い=売れる） -
+      =link_to "ログインして入札！", new_user_session_path, class: "log"
 
-      %img
-        - if @item.kind.images[0].present?
-          = image_tag "#{@item.kind.images[0].image.to_s}",size:"600*400"
-        - else
-          %img(src= "#{asset_path "default.jpg"}")
+
+
+
+    .pictures.clearfix
+      - if @item.kind.images[0].present?
+        #carousel-example-generic.carousel.slide{"data-ride" => "carousel", :style => "max-width:960px;margin:auto;"}
+
+          %ol.carousel-indicators
+            %li.active{"data-slide-to" => "0", "data-target" => "#carousel-example-generic"}
+            %li{"data-slide-to" => "1", "data-target" => "#carousel-example-generic"}
+            %li{"data-slide-to" => "2", "data-target" => "#carousel-example-generic"}
+
+          .carousel-inner{:role => "listbox"}
+            .item.active
+              %img{:alt => "photo1", :src => "#{@item.kind.images[0].image.to_s}"}/
+              .carousel-caption
+                写真1
+            - @item.kind.images[1..-1].each do |image|
+              .item
+                %img{:alt => "photo2", :src => "#{image.image.to_s}"}/
+                .carousel-caption
+                  写真2
+
+          %a.left.carousel-control{"data-slide" => "prev", :href => "#carousel-example-generic", :role => "button"}
+            %span.glyphicon.glyphicon-chevron-left{"aria-hidden" => "true"}
+            %span.sr-only Previous
+          %a.right.carousel-control{"data-slide" => "next", :href => "#carousel-example-generic", :role => "button"}
+            %span.glyphicon.glyphicon-chevron-right{"aria-hidden" => "true"}
+            %span.sr-only Next
+      -else
+        %img(src= "#{asset_path "default.jpg"}")
 
 
 
 
 -if @item.sold_price_for_buys.present?
-  %h3 売買動向
+  %h3.change 売買動向
   = area_chart @chart_data
 
 
