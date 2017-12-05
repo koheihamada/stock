@@ -52,7 +52,7 @@ Rails.application.configure do
   # routes, locales, etc. This feature depends on the listen gem.
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 
-
+  #
   # config.after_initialize do
   #   Bullet.enable  = true   # bullet を有効にする
   #
