@@ -1,207 +1,440 @@
-.content {
-  padding-top: 100px;
-  padding: 100px 0 0 0;
-  width: 100%;
-  .content-top{
-    padding: 20px 0 0 50px;
-    width: 45%;
-    float: left;
-    h1{
-      font-size: 30px;
-      font-family: hoge;
+@media screen and(min-width: 970px){
+  .content {
+    padding-top: 100px;
+    padding: 100px 0 0 0;
+    width: 100%;
+    .content-top{
+      padding: 20px 0 0 50px;
+      width: 45%;
+      float: left;
+      h1{
+        font-size: 30px;
+        font-family: hoge;
+      }
+      p.size{
+        font-size: 17px;
+        font-family: monospace;
+      }
+      p.price{
+        font-size: 17px;
+        font-family: monospace;
+      }
+      p.info{
+        width: 80%;
+        font-size: 15px;
+        border: 1px solid black;
+      }
     }
-    p.size{
-      font-size: 17px;
-      font-family: monospace;
-    }
-    p.price{
-      font-size: 17px;
-      font-family: monospace;
-    }
-    p.info{
-      width: 80%;
-      font-size: 15px;
-      border: 1px solid black;
-    }
-  }
-  .foto-booth{
-    width: 50%;
-    float: right;
-    .carousel-control.right{
-      right: 45px;
-      background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.05) 100%);
-    }
-    .carousel-control.left {
-      background-image: linear-gradient(to left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.05) 100%);
-    }
-    img{
-      width: 90%;
-      padding: 10px;
-      display: block;
-    }
-  }
-}
-
-
-
-.howtopay{
-  padding-top: 50px;
-}
-
-#overlay {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.7);
-  display: none;
-  z-index: 1000;
-}
-
-#modalWindow {
-  width: 90%;
-  position: fixed;
-  display: none;
-  z-index: 2000;
-}
-
-#close{
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  font-size: 30px;
-  color: orange;
-}
-
-button#open {
-  height: 50px;
-  font-size: 1.2em;
-  color: orange;
-  background-color: #FFF;
-  border: solid 2px orange;
-  border-radius: 3px;
-  transition: .4s;
-  &:hover {
-    background: orange;
-    color: #FFF;
-  }
-}
-
-
-.pricing-table .plan {
-  margin-left: 0px;
-  border-radius: 5px;
-  text-align: center;
-  background-color: #f3f3f3;
-  // -moz-box-shadow: 0 0 6px 2px #b0b2ab;
-  // -webkit-box-shadow: 0 0 6px 2px #b0b2ab;
-  // box-shadow: 0 0 6px 2px #b0b2ab;
-}
-
-.plan {
-  &:hover {
-    background-color: #fff;
-    -moz-box-shadow: 0 0 12px 3px #b0b2ab;
-    -webkit-box-shadow: 0 0 12px 3px #b0b2ab;
-    box-shadow: 0 0 12px 3px #b0b2ab;
-  }
-  padding: 20px;
-  margin-left: 0px;
-  color: #ff;
-  background-color: #5e5f59;
-  -moz-border-radius: 5px 5px 0 0;
-  -webkit-border-radius: 5px 5px 0 0;
-  border-radius: 5px 5px 0 0;
-}
-
-.plan-name-bronze {
-  padding: 20px;
-  color: #fff;
-  background-color: #665D1E;
-  -moz-border-radius: 5px 5px;
-  -webkit-border-radius: 5px 5px;
-  border-radius: 5px 5px;
-  h2{
-    font-size: 23px;
-  }
-}
-
-.plan-name-silver {
-  padding: 20px;
-  color: #fff;
-  background-color: #C0C0C0;
-  -moz-border-radius: 5px 5px;
-  -webkit-border-radius: 5px 5px;
-  border-radius: 5px 5px;
-  h2{
-    padding-right: 0;
-    font-size: 23px;
-  }
-}
-
-.plan-name-gold {
-  padding: 20px;
-  color: #fff;
-  background-color: #FFD700;
-  -moz-border-radius: 5px 5px;
-  -webkit-border-radius: 5px 5px;
-  border-radius: 5px 5px;
-  h2{
-    font-size: 23px;
-  }
-}
-
-.pricing-table-bronze {
-  padding: 20px;
-  color: #fff;
-  background-color: #f89406;
-  -moz-border-radius: 5px 5px;
-  -webkit-border-radius: 5px 5px;
-  border-radius: 5px 5px;
-}
-
-.pricing-table .plan {
-  .plan-name span {
-    font-size: 20px;
-  }
-  ul {
-    list-style: none;
-    margin: 0;
-    -moz-border-radius: 0 0 5px 5px;
-    -webkit-border-radius: 0 0 5px 5px;
-    border-radius: 0 0 5px 5px;
-    li.plan-feature {
-      padding: 15px 10px;
-      border-top: 1px solid #c5c8c0;
-      margin-right: 35px;
+    .foto-booth{
+      width: 50%;
+      float: right;
+      .carousel-control.right{
+        right: 45px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.05) 100%);
+      }
+      .carousel-control.left {
+        background-image: linear-gradient(to left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.05) 100%);
+      }
+      img{
+        width: 90%;
+        padding: 10px;
+        display: block;
+      }
     }
   }
-}
 
-.pricing-three-column {
-  margin: 0 auto;
-  width: 80%;
-  padding-top: 50px;
-  ul{
-    padding-top: 10px;
+
+
+  .howtopay{
+    padding-top: 50px;
+  }
+
+  #overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    z-index: 1000;
+  }
+
+  #modalWindow {
+    width: 90%;
+    position: fixed;
+    display: none;
+    z-index: 2000;
+  }
+
+  #close{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 30px;
+    color: #ffa500;
+  }
+
+  button#open {
+    height: 50px;
+    font-size: 1.2em;
+    color: #ffa500;
+    background-color: #FFF;
+    border: solid 2px #ffa500;
+    border-radius: 3px;
+    transition: .4s;
+    &:hover {
+      background: #ffa500;
+      color: #FFF;
+    }
+  }
+
+
+  .pricing-table .plan {
+    margin-left: 0px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #f3f3f3;
+    // -moz-box-shadow: 0 0 6px 2px #b0b2ab;
+    // -webkit-box-shadow: 0 0 6px 2px #b0b2ab;
+    // box-shadow: 0 0 6px 2px #b0b2ab;
+  }
+
+  .plan {
+    &:hover {
+      background-color: #fff;
+      -moz-box-shadow: 0 0 12px 3px #b0b2ab;
+      -webkit-box-shadow: 0 0 12px 3px #b0b2ab;
+      box-shadow: 0 0 12px 3px #b0b2ab;
+    }
+    padding: 20px;
+    margin-left: 0px;
+    color: #ff;
+    background-color: #5e5f59;
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+  }
+
+  .plan-name-bronze {
+    padding: 20px;
+    color: #fff;
+    background-color: #665D1E;
+    -moz-border-radius: 5px 5px;
+    -webkit-border-radius: 5px 5px;
+    border-radius: 5px 5px;
+    h2{
+      font-size: 23px;
+    }
+  }
+
+  .plan-name-silver {
+    padding: 20px;
+    color: #fff;
+    background-color: #C0C0C0;
+    -moz-border-radius: 5px 5px;
+    -webkit-border-radius: 5px 5px;
+    border-radius: 5px 5px;
+    h2{
+      padding-right: 0;
+      font-size: 23px;
+    }
+  }
+
+  .plan-name-gold {
+    padding: 20px;
+    color: #fff;
+    background-color: #FFD700;
+    -moz-border-radius: 5px 5px;
+    -webkit-border-radius: 5px 5px;
+    border-radius: 5px 5px;
+    h2{
+      font-size: 23px;
+    }
+  }
+
+  .pricing-table-bronze {
+    padding: 20px;
+    color: #fff;
+    background-color: #f89406;
+    -moz-border-radius: 5px 5px;
+    -webkit-border-radius: 5px 5px;
+    border-radius: 5px 5px;
+  }
+
+  .pricing-table .plan {
+    .plan-name span {
+      font-size: 20px;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      -moz-border-radius: 0 0 5px 5px;
+      -webkit-border-radius: 0 0 5px 5px;
+      border-radius: 0 0 5px 5px;
+      li.plan-feature {
+        padding: 15px 10px;
+        border-top: 1px solid #c5c8c0;
+        margin-right: 35px;
+      }
+    }
+  }
+
+  .pricing-three-column {
+    margin: 0 auto;
+    width: 80%;
+    padding-top: 50px;
+    ul{
+      padding-top: 10px;
+    }
+  }
+
+  .pricing-variable-height .plan {
+    float: none;
+    margin-left: 2%;
+    vertical-align: bottom;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+  }
+
+  .plan-mouseover .plan-name {
+    background-color: #4e9a06 !important;
+  }
+
+  .btn-plan-select {
+    padding: 8px 25px;
+    font-size: 18px;
   }
 }
 
-.pricing-variable-height .plan {
-  float: none;
-  margin-left: 2%;
-  vertical-align: bottom;
-  display: inline-block;
-  zoom: 1;
-  *display: inline;
-}
 
-.plan-mouseover .plan-name {
-  background-color: #4e9a06 !important;
-}
+@media screen and(max-width: 970px){
+  .content {
+    padding-top: 100px;
+    padding: 100px 0 0 0;
+    width: 100%;
+    .content-top{
+      padding: 20px 0 0 0px;
+      width: 100%;
+      text-align: center;
+      h1{
+        font-size: 30px;
+        font-family: hoge;
+      }
+      p.size{
+        font-size: 17px;
+        font-family: monospace;
+      }
+      p.price{
+        font-size: 17px;
+        font-family: monospace;
+      }
+      p.info{
+        font-size: 15px;
+        border: 1px solid black;
+      }
+    }
+    .foto-booth{
+      width: 100%;
+      // float: right;
+      .carousel-control.right{
+        // right: 45px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.05) 100%);
+      }
+      .carousel-control.left {
+        background-image: linear-gradient(to left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.05) 100%);
+      }
+      img{
+        width: 90%;
+        padding: 10px;
+        display: block;
+        margin: 0 auto;
+      }
 
-.btn-plan-select {
-  padding: 8px 25px;
-  font-size: 18px;
+    }
+  }
+
+
+
+  .howtopay{
+    position: fixed;
+    bottom: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 51px;
+    background-color: white;
+    border: orange;
+    p{
+      float: left;
+      font-size: 25px;
+      line-height: 51px;
+      padding-left: 10px;
+      color: orange;
+    }
+
+  }
+
+  #overlay {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: none;
+    z-index: 1000000;
+  }
+
+  #modalWindow.payment {
+    width: 90%;
+    position: fixed;
+    top: 10px;
+    // display: none;
+    z-index: 2000;
+  }
+
+  #close{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 30px;
+    color: #ffa500;
+  }
+
+  button#open {
+    height: 40px;
+    width: 40%;
+    margin-top: 6px;
+    font-size: 1.2em;
+    color: orange;
+    background-color: white;
+    border: solid 2px orange;
+    border-radius: 3px;
+    transition: .4s;
+    position: fixed;
+    right: 15px;
+    &:hover {
+      background: orange;
+      color: #FFF;
+    }
+  }
+
+
+  .pricing-table .plan {
+    margin-left: 0px;
+    border-radius: 5px;
+    text-align: center;
+    background-color: #f3f3f3;
+    // -moz-box-shadow: 0 0 6px 2px #b0b2ab;
+    // -webkit-box-shadow: 0 0 6px 2px #b0b2ab;
+    // box-shadow: 0 0 6px 2px #b0b2ab;
+  }
+
+  .plan {
+    &:hover {
+      background-color: #fff;
+      -moz-box-shadow: 0 0 12px 3px #b0b2ab;
+      -webkit-box-shadow: 0 0 12px 3px #b0b2ab;
+      box-shadow: 0 0 12px 3px #b0b2ab;
+    }
+    padding: 20px;
+    margin-left: 0px;
+    color: #ff;
+    background-color: #5e5f59;
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
+    border-radius: 5px 5px 0 0;
+  }
+
+  .plan-name-bronze {
+    padding: 20px;
+    color: #fff;
+    background-color: #665D1E;
+    -moz-border-radius: 5px 5px;
+    -webkit-border-radius: 5px 5px;
+    border-radius: 5px 5px;
+    h2{
+      font-size: 23px;
+    }
+  }
+
+  .plan-name-silver {
+    padding: 20px;
+    color: #fff;
+    background-color: #C0C0C0;
+    -moz-border-radius: 5px 5px;
+    -webkit-border-radius: 5px 5px;
+    border-radius: 5px 5px;
+    h2{
+      padding-right: 0;
+      font-size: 23px;
+    }
+  }
+
+  .plan-name-gold {
+    padding: 20px;
+    color: #fff;
+    background-color: #FFD700;
+    -moz-border-radius: 5px 5px;
+    -webkit-border-radius: 5px 5px;
+    border-radius: 5px 5px;
+    h2{
+      font-size: 23px;
+    }
+  }
+
+  .pricing-table-bronze {
+    padding: 20px;
+    color: #fff;
+    background-color: #f89406;
+    -moz-border-radius: 5px 5px;
+    -webkit-border-radius: 5px 5px;
+    border-radius: 5px 5px;
+  }
+
+  .pricing-table .plan {
+    .plan-name span {
+      font-size: 20px;
+    }
+    ul {
+      list-style: none;
+      margin: 0;
+      -moz-border-radius: 0 0 5px 5px;
+      -webkit-border-radius: 0 0 5px 5px;
+      border-radius: 0 0 5px 5px;
+      li.plan-feature {
+        padding: 15px 10px;
+        border-top: 1px solid #c5c8c0;
+        margin-right: 35px;
+      }
+    }
+  }
+
+  .pricing-three-column {
+    margin: 0 auto;
+    width: 80%;
+    padding-top: 50px;
+    ul{
+      padding-top: 10px;
+    }
+  }
+
+  .pricing-variable-height .plan {
+    float: none;
+    margin-left: 2%;
+    vertical-align: bottom;
+    display: inline-block;
+    zoom: 1;
+    *display: inline;
+  }
+
+  .plan-mouseover .plan-name {
+    background-color: #4e9a06 !important;
+  }
+
+  .btn-plan-select {
+    padding: 8px 25px;
+    font-size: 18px;
+  }
 }
