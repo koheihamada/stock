@@ -12,7 +12,7 @@
   width: 80%;
   height: 70%;
   position: fixed;
-  border: 2px solid orange;
+  border: 2px solid #ffa500;
   background-color: #FFF;
   display: none;
   z-index: 2000;
@@ -27,14 +27,14 @@
     input{
       height: 50px;
       font-size: 1.2em;
-      color: orange;
+      color: #ffa500;
       background-color: #FFF;
-      border: solid 2px orange;
+      border: solid 2px #ffa500;
       border-radius: 3px;
       transition: .4s;
       margin-top: 100px;
       &:hover {
-        background: orange;
+        background: #ffa500;
         color: #FFF;
       }
     }
@@ -45,15 +45,15 @@ span#pay {
   width: 100px;
   height: 50px;
   font-size: 1.2em;
-  color: orange;
+  color: #ffa500;
   background-color: #FFF;
-  border: solid 2px orange;
+  border: solid 2px #ffa500;
   border-radius: 3px;
   transition: .4s;
 }
 
 span#pay:hover {
-  background: orange;
+  background: #ffa500;
   color: #FFF;
 }
 
@@ -62,5 +62,5 @@ span#pay:hover {
   top: 10px;
   left: 10px;
   font-size: 30px;
-  color: orange;
+  color: #ffa500;
 }

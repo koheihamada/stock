@@ -1,7 +1,7 @@
 @media screen and(min-width: 970px){
   .home{
     padding-top: 100px;
-    height: 400px;
+    height: 500px;
     background-size: cover;
     position: relative;
     h3{
@@ -28,44 +28,27 @@
 
     .box{
       padding-top: 20px;
-      padding-right: 60px;
-      input.search{
-        border: solid #EEEEEE 1px;
-        width: 500px;
-        margin-left: 200px;
-        background-color: white;
-        border-radius: 5px;
-        float: left;
-        clear:both;
-        padding: 12.5px;
-        p{
-          padding: 10px 20px;
-          .fa{
-            float: right;
-            font-size: 21px;
-            padding-top: 1px;
-            color: gray;
-          }
+      padding-bottom: 20px;
+      form{
+        text-align: center;
+        input.search{
+          border: solid #EEEEEE 1px;
+          width: 500px;
+          background-color: white;
+          border-radius: 5px;
+          padding: 12.5px;
+          display: inline;
+          font-size: 15px;
         }
-      }
-      input.submit{
-        background-color: #41ad33;
-        border: 2px solid #41ad33;
-        padding: 6px 10px;
-        margin-left: 15px;
-        border-radius: 5px;
-        color: white;
-        font-size: 22px;
-      }
-      .submit{
-        float: left;
-        p{
-          background-color: #41ad33;
-          padding: 6px 10px;
+        input.submit{
+          background-color: #ffa500;
+          border: 2px solid #ffa500;
+          padding: 10px 10px;
           margin-left: 15px;
           border-radius: 5px;
           color: white;
-          font-size: 22px;
+          font-size: 16px;
+          display: inline;
         }
       }
     }
@@ -379,6 +362,7 @@
       font-family: 'Osaka';
     }
     h4{
+      display: none;
       font-size: 20px;
       text-align: center;
       color: black;
@@ -413,8 +397,8 @@
         }
       }
       input.submit{
-        background-color: orange;
-        border: 2px solid orange;
+        background-color: #ffa500;
+        border: 2px solid #ffa500;
         padding: 8px 10px;
         // margin-left: 15px;
         border-radius: 0px;
@@ -682,41 +666,5 @@
 
   .clear{
     clear: both;
-  }
-  .footer{
-    //position: relative;
-    //bottom:0;
-    width: 100%;
-    height: 230px;
-    margin-top: 50px;
-    padding-top: 30px;
-    background-color: black;
-    &__content{
-      text-align:left;
-      font-size: 15px;
-      color: white;
-      ul{
-        font-size: 20px;
-        li{
-          font-size: 15px;
-        }
-      }
-    }
-    &__left{
-      float: left;
-      padding-left: 100px;
-    }
-    &__middle{
-      float: left;
-      padding-left: 100px;
-    }
-    &__right{
-      float: left;
-      padding-left: 100px;
-    }
-    &__bottom{
-      text-align: center;
-      clear: both;
-    }
   }
 }

@@ -3,7 +3,7 @@
     padding-top: 110px;
     width: 100%;
     .detail{
-      padding: 20px 0 0 90px;
+      padding: 20px 0 0px 90px;
       width: 50%;
       float: left;
       span.name{
@@ -37,8 +37,8 @@
             padding: 5px;
             margin-left: 70px;
             color: white;
-            background-color: #41ad33;
-            border: 1px solid #41ad33;
+            background-color: #483d8b;
+            border: 1px solid #483d8b;
             border-radius: 5px;
             float: left;
           }
@@ -54,8 +54,8 @@
             margin-top: 12px;
             padding: 5px 5px;
             color: white;
-            background-color: #ff5a5f;
-            border: 1px solid #ff5a5f;
+            background-color: #aed9e6;
+            border: 1px solid #aed9e6;
             border-radius: 5px;
           }
 
@@ -83,14 +83,16 @@
               width: 68%;
             }
             input.buy{
-              background-color: #41ad33;
-              border: #41ad33;
+              background-color: #483d8b;
+              border: #483d8b;
               font-size: 14px;
               color: white;
               padding: 0;
             }
             a.btn.btn-primary.buy{
               padding: 7px 15px;
+              background-color: #483d8b;
+              border: #483d8b;
             }
           }
         }
@@ -112,11 +114,15 @@
               margin-left: 15px;
             }
             input.sell{
-              background-color: #41ad33;
-              border: #41ad33;
+              background-color: #483d8b;
+              border: #483d8b;
               border-radius: 5px;
               font-size: 14px;
               color: white;
+            }
+            .btn.btn-primary{
+              background-color: #aed9e6;
+              border: #aed9e6;
             }
           }
         }
@@ -146,6 +152,59 @@
     text-align: center;
     padding-right: 110px;
   }
+  h3.change{
+    padding-top: 50px;
+  }
+  .cube{
+    padding-top: 110px;
+    width: 100%;
+    .cube-top{
+      padding: 20px 0 0 90px;
+      width: 50%;
+      float: left;
+      h1{
+        font-size: 37px;
+        font-family: hoge;
+      }
+      p.size{
+        font-size: 19px;
+        font-family: monospace;
+      }
+      p.price{
+        font-size: 17px;
+        font-family: monospace;
+      }
+      p.info{
+        width: 80%;
+        font-size: 19px;
+        border: 1px solid black;
+      }
+      a.log{
+        background-color: #ffa500;
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ffa500;
+      }
+    }
+    .pictures{
+      margin: 0 auto;
+      width: 50%;
+      float: right;
+      .carousel-control.right{
+        right: 45px;
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.05) 100%);
+      }
+      .carousel-control.left {
+        background-image: linear-gradient(to left, rgba(0, 0, 0, 0.0001) 0%, rgba(0, 0, 0, 0.05) 100%);
+      }
+      img{
+        width: 90%;
+        height: 90%;
+        padding: 15px;
+      }
+    }
+  }
 }
 
 
@@ -154,9 +213,7 @@
     padding-top: 110px;
     width: 100%;
     .detail{
-      // padding: 20px 0 0 90px;
-      // width: 50%;
-      // float: left;
+      padding-bottom: 20px;
       text-align: center;
       span.name{
         font-size: 20px;
@@ -191,14 +248,18 @@
           }
           input#buy{
             font-size: 15px;
-            padding: 10px;
-            margin-left: 15px;
-            margin-top: 20px;
+            padding: 15px 10px 15px 10px;
+            // margin-left: 15px;
+            // margin-top: 20px;
             color: white;
-            background-color: #41ad33;
-            border: 1px solid #41ad33;
-            border-radius: 5px;
-            float: left;
+            background-color: #483d8b;
+            border: 1px solid #483d8b;
+            border-radius: 0px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            z-index: 1000;
+            width: 50%;
           }
           span.sell{
             // padding: 5px;
@@ -209,13 +270,18 @@
           }
           input#sell{
             font-size: 15px;
-            margin-left: 20px;
+            // margin-left: 20px;
             // margin-top: 12px;
-            padding: 10px;
+            padding: 15px 10px 15px 10px;
             color: white;
-            background-color: #ff5a5f;
-            border: 1px solid #ff5a5f;
-            border-radius: 5px;
+            background-color: #aed9e6;
+            border: 1px solid #aed9e6;
+            border-radius: 0px;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            z-index: 1000;
+            width: 50%;
           }
 
         }
@@ -243,16 +309,18 @@
               padding: 5px;
               margin-left: 17px;
               width: 68%;
+              border: 1px solid;
             }
             input.buy{
-              background-color: #41ad33;
-              border: #41ad33;
+              background-color: #483d8b;
+              border: #483d8b;
               font-size: 14px;
               color: white;
               padding: 0;
             }
             a.btn.btn-primary.buy{
               padding: 7px 15px;
+              background-color: #483d8b;
             }
           }
         }
@@ -273,14 +341,20 @@
               padding: 5px;
               margin-left: 17px;
               width: 68%;
+              border: 1px solid;
             }
             input.sell{
-              background-color: #41ad33;
-              border: #41ad33;
+              background-color: #483d8b;
+              border: #483d8b;
               border-radius: 5px;
               font-size: 14px;
               color: white;
               padding: 0;
+            }
+            a.btn.btn-primary{
+              padding: 7px 15px;
+              background-color: #aed9e6;
+              border: #aed9e6;
             }
           }
         }
@@ -310,6 +384,44 @@
 
   h3{
     text-align: center;
-    padding-right: 110px;
+  }
+
+  .cube{
+    padding-top: 50px;
+    // padding: 100px 0 0 0;
+    width: 100%;
+    .cube-top{
+      padding: 20px 0 20px 0px;
+      width: 100%;
+      text-align: center;
+      h1{
+        font-size: 30px;
+        font-family: hoge;
+      }
+      p{
+        font-size: 14px;
+        font-family: monospace;
+      }
+      p.size{
+        font-size: 17px;
+      }
+      p.info{
+        width: 80%;
+        font-size: 15px;
+        border: 1px solid black;
+      }
+      a.log{
+        background-color: #ffa500;
+        color: white;
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #ffa500;
+      }
+    }
+    img{
+      width: 90%;
+      padding: 10px;
+      display: block;
+    }
   }
 }
