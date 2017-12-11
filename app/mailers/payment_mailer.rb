@@ -3,6 +3,7 @@ class PaymentMailer < ActionMailer::Base
 
   def payment_email(user, payment)
     @payment = payment.item.kind.name
-    mail to: user.email, subject: "購入ありがとうございます"
+    mail to: user.email,
+    subject: "購入ありがとうございます"
   end
 end
